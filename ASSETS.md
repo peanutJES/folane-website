@@ -23,7 +23,7 @@ HTML 문서 두 장과 SVG 도형으로 만든 설명용 그래픽입니다. 영
 
 - `assets/mac/glass-fold.svg`: Folane 웹 첫 화면용 유리 곡면 조명. 로컬 SVG로 그린 장식이며 맥북 렌더 프레임과 별개입니다.
 
-## 외부 라이브러리
+## 외부 라이브러리와 글꼴
 
-- three.js 0.160.0 (MIT): `field.js`가 `https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js`에서 필요할 때만 불러와요. 저장소에는 넣지 않았어요.
-- `field.js` 안의 F 리본 자리 좌표는 Folane 아이콘(`assets/icon.png`)의 밝은 리본 부분을 마스크로 떼어 고르게 뽑은 값이에요.
+- three.js 0.160.0 (MIT): `index.html`의 importmap이 `https://unpkg.com/three@0.160.0/build/three.module.min.js`를 가리켜요. 저장소에는 넣지 않았어요.
+- Google Fonts(OFL): Raleway, JetBrains Mono, Space Grotesk, Inter. 명세의 링크 그대로 불러와요.

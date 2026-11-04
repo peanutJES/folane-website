@@ -13,11 +13,15 @@
 <meta property="og:image" content="https://peanutjes.github.io/folane-website/assets/mac/poster.jpg">
 <link rel="icon" href="assets/icon.png">
 <link rel="apple-touch-icon" href="assets/icon.png">
-<script>try{var d=document.documentElement;if(!matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("intro");if(!location.hash&&!sessionStorage.getItem("folane-preroll"))d.classList.add("preroll-on")}}catch(e){}</script>
 <link rel="stylesheet" href="assets/fonts/pretendard.css">
 <link rel="preload" as="image" href="assets/mac/f001.webp?v=7">
 <link rel="stylesheet" href="styles.css?v=20261104-pretendard">
-<link rel="stylesheet" href="motion.css?v=20261104-motion">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700;900&display=swap">
+<link rel="stylesheet" href="gravity.css?v=20261104-gravity">
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.min.js"}}</script>
+<script>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("g-pre")}catch(e){}</script>
 <script type="application/ld+json" id="folane-app-schema">
 {
   "@context": "https://schema.org",
@@ -47,38 +51,96 @@
 </script>
 </head>
 <body>
-<div class="preroll" id="preroll" aria-hidden="true">
-  <div class="preroll-in">
-    <img src="assets/icon.png" alt="" width="52" height="52">
-    <p class="preroll-status" id="preroll-status">PDF를 펼치는 중</p>
-    <div class="preroll-bar"><i id="preroll-fill"></i></div>
-    <p class="preroll-count" id="preroll-count">000%</p>
+<div class="g-bg" id="g-bg" data-stage="0" aria-hidden="true"><i class="s0"></i><i class="s1"></i><i class="s2"></i></div>
+<div class="g-canvas-host" id="g-canvas-host" aria-hidden="true"></div>
+<div class="g-loader" id="g-loader" aria-hidden="true">
+  <div class="g-loader-col">
+    <p class="g-l-status" id="g-l-status">Calibrating gravity field</p>
+    <div class="g-l-bar"><i id="g-l-fill"></i></div>
+    <p class="g-l-count" id="g-l-count">000%</p>
   </div>
 </div>
 <a class="skip-link" href="#translate">본문으로 건너뛰기</a>
 
-<header class="nav top" id="nav">
-  <div class="wrap">
-    <a class="nav-brand" href="#top"><img src="assets/icon.png" alt="" width="22" height="22">Folane</a>
-    <ul class="nav-links">
-      <li><a href="#translate">번역</a></li><li><a href="#ai">AI</a></li><li><a href="#features">기능</a></li>
-      <li><a href="#research">논문 검색</a></li>
-      <li><a href="#look">자세히 보기</a></li>
-      <li><a href="#try">써 보기</a></li>
-      <li><a href="#faq">자주 묻는 질문</a></li>
-    </ul>
-    <a class="nav-try" href="#try">써 보기</a>
-    <a class="nav-buy" href="#download">받기</a>
+<header class="g-header" id="nav">
+  <a class="g-wordmark" href="#top" aria-label="Folane 처음으로">FOLANE</a>
+  <nav class="g-nav" aria-label="주요 메뉴"><ul class="nav-links"><li><a href="#translate">번역</a></li><li><a href="#ai">AI</a></li><li><a href="#features">기능</a></li><li><a href="#try">써 보기</a></li><li><a href="#faq">자주 묻는 질문</a></li></ul></nav>
+  <div class="g-ctrls">
+    <button class="g-icon-btn" id="g-open" type="button" aria-label="첫 화면 구체 색 고르기" aria-controls="g-drawer" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg></button>
+    <a class="g-pill nav-buy" href="#download"><span>받기</span><span class="g-orb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span></a>
   </div>
 </header>
+<div class="g-scrim" id="g-scrim" hidden></div>
+<aside class="g-drawer" id="g-drawer" role="dialog" aria-modal="true" aria-labelledby="g-drawer-title" hidden>
+  <div class="g-drawer-head"><span class="g-drawer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg></span><h2 id="g-drawer-title">Studio Controls</h2><button class="g-close" id="g-close" type="button" aria-label="닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+  <p class="g-drawer-note">첫 화면 구체의 색을 골라요. 내려가면 장면이 볼트 라임으로, 하트가 모일 때 로즈 핑크로 바뀌어요.</p>
+  <h3 class="g-drawer-sub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>Hero Palette Shaders</h3>
+  <div class="g-themes" role="radiogroup" aria-label="첫 화면 구체 색">
+    <button class="g-theme" type="button" role="radio" aria-checked="true" data-theme="roseGold"><b>Royal Blue &amp; Pearl<i style="background:#2F69FF"></i></b><span>흰 슬레이트 그라데이션 위에 또렷한 코발트 구체가 떠요.</span></button>
+    <button class="g-theme" type="button" role="radio" aria-checked="false" data-theme="pinkBlush"><b>Rose Blush &amp; Crème<i style="background:#FFA6B3"></i></b><span>진주빛 스튜디오에 사탕 같은 분홍과 딸기색 포인트.</span></button>
+    <button class="g-theme" type="button" role="radio" aria-checked="false" data-theme="voltLime"><b>Volt Lime &amp; Slate<i style="background:#E1FC03"></i></b><span>깨끗한 흰 슬레이트 수평선 앞의 전기 같은 볼트 라임.</span></button>
+    <button class="g-theme" type="button" role="radio" aria-checked="false" data-theme="arcticBlue"><b>Arctic Sky &amp; Crystal<i style="background:#96E5FF"></i></b><span>반투명 유리 광택이 도는 차가운 북극 하늘색.</span></button>
+  </div>
+  <div class="g-drawer-foot">
+    <p><span>RENDER ENGINE</span><span>THREE.JS WEBGL</span></p>
+    <p><span>DYNAMICS SOLVER</span><span>3D COLLISION VERLET</span></p>
+    <button class="g-reset" id="g-reset" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Reset Defaults</button>
+  </div>
+</aside>
 
 <main id="top">
+<section class="g-sec g-hero" id="g-hero" aria-labelledby="g-hero-title">
+  <div class="g-hero-row">
+    <div class="g-hero-left">
+      <p class="g-eyebrow g-in" style="--y:14px;--d:.15s">[ 무료 PDF 리더 ]</p>
+      <h1 class="g-hero-h g-in" id="g-hero-title" style="--y:22px;--d:.28s;--t:1s">덜 흩어지고, 더 깊이.</h1>
+    </div>
+    <div class="g-hero-right g-in" style="--d:.45s">
+      <p class="g-hero-p">읽던 자리를 떠나지 않고 밑줄과 메모, 번역과 질문을 한 화면에서 해요.</p>
+      <p class="g-credit">© 2026 — 맥 · 윈도우 · 안드로이드 · 무료</p>
+      <p class="g-cue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg><span>스크롤</span></p>
+    </div>
+  </div>
+</section>
+<section class="g-sec g-drop" id="g-drop" aria-labelledby="g-drop-title">
+  <div class="g-grid">
+    <div class="g-col7">
+      <p class="g-label g-reveal">[ 02 — 밑줄 ]</p>
+      <h2 class="g-h2 g-reveal" id="g-drop-title" style="--d:.1s">밑줄 한 번이면<br>내려앉아요.</h2>
+      <p class="g-p g-reveal" style="--d:.2s">계속 내리면 구체들이 중력을 따라 떨어져 바닥에 튀다가 멈춰요. 형광펜으로 그은 표시도 PDF 표준 주석으로 저장돼서, 미리보기나 Acrobat에서 열어도 그대로 남아요.</p>
+    </div>
+    <div class="g-col5 g-reveal" style="--d:.25s">
+      <div class="g-cards">
+        <article class="g-card"><div class="g-card-in"><header><span>01</span><span>표시</span><i></i></header><b>하이라이트 · 밑줄 · 취소선</b><p>문장을 고르고 막대에서 바로 칠해요</p></div></article>
+        <article class="g-card"><div class="g-card-in"><header><span>02</span><span>펜</span><i></i></header><b>꾹 누르면 직선</b><p>삐뚤게 그어도 끝에서 멈추면 반듯해져요</p></div></article>
+        <article class="g-card"><div class="g-card-in"><header><span>03</span><span>저장</span><i></i></header><b>PDF 표준 주석</b><p>다른 앱에서 열어도 표시가 그대로예요</p></div></article>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="g-sec g-form" id="g-form" aria-labelledby="g-form-title">
+  <div class="g-form-top">
+    <p class="g-label g-reveal">[ 03 — 메모 ]</p>
+    <h2 class="g-h2 g-reveal" id="g-form-title" style="--d:.1s">흩어졌다가,<br>한 모양으로.</h2>
+  </div>
+  <div class="g-form-bottom">
+    <p class="g-p g-reveal" style="--d:.15s">떨어졌던 구체가 다시 모여 하나의 모양이 돼요. 메모도 고른 줄 옆에 붙어 있어서 다음에 열어도 그 자리에 있어요. 커서로 지나가면 흩어졌다가 다시 돌아와요.</p>
+    <p class="g-pill-note g-reveal" style="--d:.28s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="m13 13 6 6"/></svg><span>커서로 휘저어 보세요</span></p>
+  </div>
+</section>
+<section class="g-sec g-release" id="g-release" aria-labelledby="g-release-title">
+  <div class="g-release-in">
+    <p class="g-label g-reveal">[ 04 — 다시 읽기 ]</p>
+    <h2 class="g-h2 g-h2-lg g-reveal" id="g-release-title" style="--d:.12s">그리고,<br>가볍게.</h2>
+    <p class="g-p g-reveal" style="--d:.24s">구체가 모두 떠올라 렌즈 속으로 사라지면 읽던 문장만 남아요. 번역과 AI, 실제 화면은 바로 아래에 있어요.</p>
+  </div>
+</section>
 <section class="hero" id="hero">
   <div class="hero-stage" id="hero-stage">
     <canvas id="mac-seq" aria-hidden="true"></canvas>
     <img class="mac-hi" id="mac-hi" src="assets/mac/screen.webp?v=7" alt="" aria-hidden="true">
     <div class="hero-copy" id="hero-copy">
-      <h1 class="h1">번역하고, 묻고.<br>읽던 자리에서.</h1>
+      <h2 class="h1">번역하고, 묻고.<br>읽던 자리에서.</h2>
       <p class="lead">원문의 배치를 살려 번역하고, 문맥을 아는 AI에 물어보세요.</p>
       <div class="hero-cta">
         <a class="pill pill-w" id="hero-dl" href="#download"><span id="hero-dl-label">Folane 받기</span><span class="sz" id="hero-dl-size"></span></a>
@@ -168,52 +230,6 @@
   </div>
 </section>
 
-<section class="field" id="field" aria-labelledby="field-title" data-stage="0">
-  <div class="field-stage" id="field-stage" data-stage="0">
-    <div class="fbg b0"></div><div class="fbg b1"></div><div class="fbg b2"></div><div class="fbg b3"></div>
-    <canvas id="field-canvas" aria-hidden="true"></canvas>
-  </div>
-  <div class="field-act act-0">
-    <div class="fa-main">
-      <p class="f-label rv">01 · 읽는 동안</p>
-      <h2 class="f-h rv" id="field-title" style="--d:.08s">읽다 보면<br>생각이 흩어져요.</h2>
-    </div>
-    <div class="fa-side rv" style="--d:.18s">
-      <p class="f-p">찾아보고 싶은 낱말과 적어 두고 싶은 반론이 떠오르는데, 책장은 계속 넘어가요.</p>
-      <p class="f-cue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>계속 내려 보세요</p>
-    </div>
-  </div>
-  <div class="field-act act-1">
-    <div class="fa-main">
-      <p class="f-label rv">02 · 밑줄</p>
-      <h2 class="f-h rv" style="--d:.08s">밑줄 한 번이면<br>내려앉아요.</h2>
-      <p class="f-p rv" style="--d:.16s">형광펜으로 그은 표시는 PDF 표준 주석으로 저장돼요. 미리보기나 Acrobat에서 열어도 그대로 보여요.</p>
-    </div>
-    <div class="fa-cards rv" style="--d:.24s">
-      <article class="gcard"><div class="gcard-in"><header><span>01</span><span>표시</span><i></i></header><b>하이라이트 · 밑줄 · 취소선</b><p>문장을 고르고 막대에서 바로 칠해요</p></div></article>
-      <article class="gcard"><div class="gcard-in"><header><span>02</span><span>펜</span><i></i></header><b>꾹 누르면 직선</b><p>삐뚤게 그어도 끝에서 멈추면 반듯해져요</p></div></article>
-      <article class="gcard"><div class="gcard-in"><header><span>03</span><span>보기</span><i></i></header><b>표시 숨기기</b><p>단축키 한 번이면 원본만 보여요</p></div></article>
-    </div>
-  </div>
-  <div class="field-act act-2">
-    <div class="fa-main">
-      <p class="f-label rv">03 · 메모</p>
-      <h2 class="f-h rv" style="--d:.08s">흩어졌던 메모가<br>한자리에.</h2>
-    </div>
-    <div class="fa-side end">
-      <p class="f-p rv" style="--d:.12s">메모는 고른 줄 높이에 붙어요. 다음에 열어도 그 줄 옆에 그대로 있어요.</p>
-      <p class="f-pill rv" style="--d:.24s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.6 21.4 9.9 14.1 4.5 19.5V3.8l11.3 11.3H8.9"/></svg>커서로 휘저어 보세요</p>
-    </div>
-  </div>
-  <div class="field-act act-3">
-    <div class="fa-center">
-      <p class="f-label rv">04 · 다시 읽기</p>
-      <h2 class="f-h rv" style="--d:.1s">그리고 다시,<br>읽던 자리로.</h2>
-      <p class="f-p rv" style="--d:.2s">정리는 Folane에 맡기고 문장으로 돌아가요. 번역과 AI는 바로 아래에 있어요.</p>
-    </div>
-  </div>
-  <div class="field-tail" aria-hidden="true"></div>
-</section>
 
 <section class="sec dark-sec feature-section" id="features"><div class="wrap">
 <div class="section-intro rv"><div><p class="eyebrow">읽는 흐름 그대로</p><h2 class="h2">읽고, 칠하고, 적는 일을<br>한 화면에서.</h2></div><p>궁금한 기능을 골라 보세요.<br>실제 Folane의 움직임 그대로.</p></div>
@@ -479,25 +495,29 @@
   </div>
 </section>
 
-<section class="sec dark-sec outro">
-  <div class="wrap">
-    <img src="assets/icon.png" alt="" width="96" height="96">
-    <h2 class="h2" style="color:#fff">번역하고, 묻고, 기록하세요.</h2>
-    <p class="lead">읽고 싶은 문서를, 이해하고 싶은 문장부터. Folane에서 이어 가세요.</p>
-    <div class="hero-cta"><a class="pill pill-w" id="outro-dl" href="#download"><span id="outro-dl-label">Folane 받기</span><span class="sz" id="outro-dl-size"></span></a><a class="pill pill-g" href="https://github.com/peanutJES/folane-releases/blob/main/docs/guide.md">사용법 보기</a></div>
-  </div>
-  <div class="ticker" aria-hidden="true"><div class="ticker-track"><div class="ticker-seq"><span>밑줄 긋고</span><i class="d1"></i><span>메모하고</span><i class="d2"></i><span>번역하고</span><i class="d3"></i><span>물어보고</span><i class="d4"></i><span>다시 읽고</span><i class="d5"></i></div><div class="ticker-seq"><span>밑줄 긋고</span><i class="d1"></i><span>메모하고</span><i class="d2"></i><span>번역하고</span><i class="d3"></i><span>물어보고</span><i class="d4"></i><span>다시 읽고</span><i class="d5"></i></div></div></div>
-</section>
 <noscript><p class="noscript-note">직접 써 보기와 화면 확대는 JavaScript를 켜면 사용할 수 있어요. 설치 파일과 사용법은 아래 링크에서 확인할 수 있어요.</p></noscript>
 </main>
 
-<footer class="foot">
-  <div class="wrap">
-    <div><a class="nav-brand" href="#top" style="color:var(--ink);margin-bottom:10px"><img src="assets/icon.png" alt="" width="22" height="22">Folane</a><p style="margin:0;max-width:24em">folio(책의 낱장)와 lane(한 줄로 난 길)을 합쳐 ‘페이지를 따라가는 길’이라는 뜻이에요.</p></div>
-    <div><h5>받기</h5><ul><li><a data-dl="mac" href="https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-1.21.22-mac.dmg">맥</a></li><li><a data-dl="win" href="https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-Setup-1.21.22.exe">윈도우</a></li><li><a data-dl="android" href="https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-1.21.22-android.apk">안드로이드</a></li><li><a href="https://github.com/peanutJES/folane-releases/releases">모든 버전</a></li></ul></div>
-    <div><h5>알아보기</h5><ul><li><a href="#translate">번역</a></li><li><a href="#features">기능</a></li><li><a href="#look">자세히 보기</a></li><li><a href="#try">써 보기</a></li><li><a href="#ai">AI</a></li></ul></div>
-    <div><h5>문서</h5><ul><li><a href="https://github.com/peanutJES/folane-releases/blob/main/docs/guide.md">화면으로 보는 사용법</a></li><li><a href="https://github.com/peanutJES/folane-releases#readme">설치 안내</a></li><li><a href="#privacy">밖으로 보내는 것</a></li><li><a href="#faq">자주 묻는 질문</a></li></ul></div>
-    <div class="legal"><span>© 2026 정은성.</span><span>현재 버전 <span class="kbd" data-version>1.21.22</span></span></div>
+<footer class="g-foot" id="g-foot">
+  <i class="g-bloom a" aria-hidden="true"></i><i class="g-bloom b" aria-hidden="true"></i>
+  <div class="g-marquee" aria-hidden="true"><div class="g-marquee-track"><div class="g-marquee-seq"><span>덜 흩어지고</span><i></i><span>더 깊이</span><i></i><span>밑줄 긋고</span><i></i><span>다시 읽기</span><i></i></div><div class="g-marquee-seq"><span>덜 흩어지고</span><i></i><span>더 깊이</span><i></i><span>밑줄 긋고</span><i></i><span>다시 읽기</span><i></i></div></div></div>
+  <div class="g-foot-body">
+    <div class="g-foot-grid">
+      <div class="g-cta g-reveal-up">
+        <p class="g-foot-label">[ Folane 받기 ]</p>
+        <h2 class="g-cta-h">다음 PDF는<br>Folane에서.</h2>
+        <a class="g-mailpill" id="outro-dl" href="#download"><span id="outro-dl-label">Folane 받기</span><span class="g-sz" id="outro-dl-size"></span><span class="g-orb g-orb-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+      </div>
+      <div class="g-cols"><div class="g-col g-reveal-up" style="--d:0.00s"><h3>받기</h3><ul><li><a data-dl="mac" href="https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-1.21.22-mac.dmg">맥<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a data-dl="win" href="https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-Setup-1.21.22.exe">윈도우<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a data-dl="android" href="https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-1.21.22-android.apk">안드로이드<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="https://github.com/peanutJES/folane-releases/releases">모든 버전<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li></ul></div><div class="g-col g-reveal-up" style="--d:0.08s"><h3>알아보기</h3><ul><li><a href="#translate">번역<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="#ai">AI<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="#features">기능<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="#try">써 보기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li></ul></div><div class="g-col g-reveal-up" style="--d:0.16s"><h3>문서</h3><ul><li><a href="https://github.com/peanutJES/folane-releases/blob/main/docs/guide.md">화면으로 보는 사용법<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="https://github.com/peanutJES/folane-releases#readme">설치 안내<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="#privacy">밖으로 보내는 것<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="#faq">자주 묻는 질문<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li></ul></div></div>
+    </div>
+    <div class="g-bottom">
+      <div class="g-bottom-l"><span class="g-wordmark g-wordmark-foot">FOLANE</span><i class="g-dot" aria-hidden="true"></i><span class="g-copy">© 2026 정은성 — 현재 버전 <span data-version>1.21.22</span></span></div>
+      <div class="g-social">
+        <a href="https://github.com/peanutJES/folane-releases" aria-label="Folane 릴리스 저장소(GitHub)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+        <a href="https://github.com/peanutJES/folane-releases/blob/main/docs/guide.md" aria-label="화면으로 보는 사용법"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></a>
+        <a href="https://github.com/peanutJES/folane-releases/releases" aria-label="모든 버전 받기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg></a>
+      </div>
+    </div>
   </div>
 </footer>
 
@@ -509,7 +529,7 @@
 
 
 <script src="app.js?v=20261104-schema" defer></script>
-<script src="motion.js?v=20261104-motion" defer></script>
-<script type="module" src="field.js?v=20261104-motion"></script>
+<script src="motion.js?v=20261104-gravity" defer></script>
+<script type="module" src="gravity.js?v=20261104-gravity"></script>
 </body>
 </html>
