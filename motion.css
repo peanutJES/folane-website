@@ -1,0 +1,107 @@
+/* 모션: 첫 방문 로더 · 히어로 글 등장 · 흐림이 걷히는 등장 · 형광펜 구체 장(#field) · 마무리 띠 */
+:root{--ease-expo:cubic-bezier(.16,1,.3,1);--ease-io2:cubic-bezier(.65,0,.35,1);--hl-yellow:#FFD84A;--hl-green:#6ED68C;--hl-blue:#78A0FF;--hl-pink:#FF8CAA;--hl-violet:#B48CFF}
+
+/* ── 로더 ── */
+.preroll{display:none}
+.preroll-on .preroll{position:fixed;inset:0;z-index:100;display:grid;place-items:center;pointer-events:none;
+  background:radial-gradient(circle at 50% 42%,#1B2448 0%,#0E1528 52%,#080D17 100%);
+  transition:opacity .55s var(--ease-io2);animation:preroll-safety .4s 4.6s forwards}
+.preroll.leaving{opacity:0}
+.preroll-in{display:flex;flex-direction:column;align-items:center;gap:22px}
+.preroll-in > *{opacity:0;transform:translateY(18px);filter:blur(6px);animation:preroll-in .9s var(--ease-expo) forwards}
+.preroll-in > :nth-child(2){animation-delay:.16s}.preroll-in > :nth-child(3){animation-delay:.32s}.preroll-in > :nth-child(4){animation-delay:.48s}
+.preroll-in img{border-radius:12px;box-shadow:0 18px 40px -16px rgba(0,0,0,.7)}
+.preroll-status{margin:0;font-family:var(--fm);font-size:11px;letter-spacing:.24em;color:#A1A6C8}
+.preroll-bar{width:clamp(180px,32vw,280px);height:2px;border-radius:99px;background:rgba(154,162,240,.16);overflow:hidden}
+.preroll-bar i{display:block;height:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,#9AA2F0,#6F8DFF);box-shadow:0 0 14px rgba(111,141,255,.6)}
+.preroll-count{margin:0;font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:.1em;color:#C9CDF7;font-variant-numeric:tabular-nums}
+@keyframes preroll-in{to{opacity:1;transform:none;filter:none}}
+@keyframes preroll-safety{to{opacity:0;visibility:hidden}}
+
+/* ── 히어로 글: 로더가 걷히면 차례로 떠올라요 ── */
+.intro .hero-copy > *{opacity:0;transform:translateY(22px);filter:blur(6px);animation:intro-safety .01s 3.4s forwards}
+.intro.intro-go .hero-copy > *{opacity:1;transform:none;filter:none;animation:none;transition:opacity 1s var(--ease-expo),transform 1s var(--ease-expo),filter 1s var(--ease-expo)}
+.intro.intro-go .hero-copy > :nth-child(2){transition-delay:.12s}.intro.intro-go .hero-copy > :nth-child(3){transition-delay:.24s}
+.intro.intro-go .hero-copy > :nth-child(n+4){transition-delay:.34s}
+@keyframes intro-safety{to{opacity:1;transform:none;filter:none}}
+
+/* ── 등장: 글 묶음은 아래에서 떠오르며 흐림이 걷혀요. 끌고 누르는 큰 화면 묶음은 원래 등장 그대로 둬요 ── */
+.js .sec-head.rv,.js .section-intro.rv,.js .f-label.rv,.js .f-h.rv,.js .f-p.rv,.js .f-pill.rv,.js .fa-side.rv,.js .fa-cards.rv{transform:translateY(36px);filter:blur(8px);transition:opacity 1.1s var(--ease-expo) var(--d,0s),transform 1.1s var(--ease-expo) var(--d,0s),filter 1.1s var(--ease-expo) var(--d,0s)}
+.js .fa-cards.rv{filter:none}
+.js .rv.in{opacity:1;transform:none;filter:none}
+
+/* ── 형광펜 구체 장 ── */
+.field{position:relative;z-index:1;color:#1D1D1F;background:#fff;isolation:isolate}
+.field-stage{position:sticky;top:0;height:100vh;height:100svh;margin-bottom:-100vh;margin-bottom:-100svh;overflow:hidden;pointer-events:none;z-index:0}
+.fbg{position:absolute;inset:0;opacity:0;transition:opacity 1.2s var(--ease-io2)}
+.fbg.b0{background:radial-gradient(circle at 50% 50%,#fff 0%,#EEF1FF 36%,#C9D3FF 100%)}
+.fbg.b1{background:radial-gradient(circle at 50% 50%,#fff 0%,#FFFBE8 38%,#FFE9A0 100%)}
+.fbg.b2{background:radial-gradient(circle at 50% 50%,#fff 0%,#FFF1F4 38%,#FFD2DD 100%)}
+.fbg.b3{background:radial-gradient(circle at 50% 46%,#1B2448 0%,#0E1528 55%,#080D17 100%)}
+.field-stage[data-stage="0"] .b0,.field-stage[data-stage="1"] .b1,.field-stage[data-stage="2"] .b2,.field-stage[data-stage="3"] .b3{opacity:1}
+#field-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.field-act{position:relative;z-index:2;box-sizing:border-box;min-height:100vh;min-height:100svh;display:flex;gap:32px;padding:clamp(104px,15vh,160px) clamp(20px,5vw,72px) clamp(48px,8vh,88px);pointer-events:none;transition:color 1.2s var(--ease-io2)}
+.field-act > *{pointer-events:auto}
+.field-tail{height:60vh;height:60svh}
+.act-0{flex-direction:column;justify-content:flex-end}
+.act-0 .fa-side{max-width:340px}
+@media (min-width:900px){.act-0{flex-direction:row;align-items:flex-end;justify-content:space-between}.act-0 .fa-side{width:300px;padding-bottom:10px}}
+.act-1{flex-direction:column;justify-content:center}
+@media (min-width:1000px){.act-1{flex-direction:row;align-items:center;justify-content:space-between}.act-1 .fa-main{max-width:640px}.act-1 .fa-cards{width:360px}}
+.act-2{flex-direction:column;justify-content:space-between}
+.act-2 .fa-side{align-self:flex-end;max-width:360px}
+@media (min-width:900px){.act-2 .fa-side{text-align:right}}
+.act-3{align-items:center;justify-content:center;text-align:center}
+.fa-center{max-width:760px}
+.f-label{margin:0;font-family:var(--fm);font-size:11px;font-weight:600;letter-spacing:.22em;color:#3048D6}
+.act-1 .f-label{color:#9A6B00}.act-2 .f-label{color:#C42E57}.act-3 .f-label{color:#9AA2F0}
+.f-h{margin:22px 0 0;font-weight:650;font-size:clamp(2.5rem,6.4vw,5.6rem);line-height:1.02;letter-spacing:-.045em;text-wrap:balance}
+.f-p{margin:24px 0 0;max-width:30em;font-size:clamp(1rem,1.2vw,1.16rem);line-height:1.62;color:#45464F;transition:color 1.2s var(--ease-io2)}
+.fa-side .f-p:first-child{margin-top:0}
+.fa-center .f-p{margin-inline:auto;max-width:28em}
+.f-cue{display:flex;align-items:center;gap:8px;margin:18px 0 0;font-family:var(--fm);font-size:11px;letter-spacing:.18em;color:#6E6E73}
+.f-cue svg{width:14px;height:14px;animation:cue 1.8s var(--ease-io2) infinite}
+@keyframes cue{50%{transform:translateY(4px);opacity:.55}}
+.f-pill{display:inline-flex;align-items:center;gap:9px;margin:24px 0 0;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.6);background:rgba(255,255,255,.38);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font-family:var(--fm);font-size:11px;letter-spacing:.16em;color:#45464F}
+.f-pill svg{width:14px;height:14px}
+@media not (hover:hover){.f-pill{display:none}}
+/* 넷째 막: 무대가 어두워지면 글도 밝게 */
+.field[data-stage="3"] .act-3{color:#F5F5F7}
+.field[data-stage="3"] .act-3 .f-p{color:#A1A1A6}
+.act-3 .fa-center{text-shadow:0 2px 28px rgba(8,13,23,.55)}
+
+/* 유리 카드 */
+.fa-cards{display:flex;flex-direction:column;gap:14px;margin-top:36px}
+@media (min-width:1000px){.fa-cards{margin-top:0}}
+.gcard{position:relative;padding:1px;border-radius:1.4rem;background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,.3) 50%,rgba(255,255,255,.1));box-shadow:0 14px 40px -12px rgba(154,107,0,.22);transition:transform .5s var(--ease-expo)}
+@media (hover:hover) and (pointer:fine){.gcard:hover{transform:translateY(-2px)}}
+.gcard-in{position:relative;overflow:hidden;border-radius:calc(1.4rem - 1px);padding:18px 22px;background:rgba(255,255,255,.3);backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%)}
+.gcard-in::before{content:"";position:absolute;left:12%;right:12%;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),transparent)}
+.gcard header{display:flex;align-items:center;gap:10px;font-family:var(--fm);font-size:10px;letter-spacing:.16em;color:#8A7A52}
+.gcard header span:nth-child(2){color:#9C978A}
+.gcard header i{width:7px;height:7px;margin-left:auto;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFE98A,#F0A800);box-shadow:0 0 8px rgba(240,168,0,.6)}
+.gcard b{display:block;margin-top:10px;font-size:18px;font-weight:650;letter-spacing:-.02em}
+.gcard p{margin:4px 0 0;font-size:13.5px;color:#6E6E73}
+@media (prefers-reduced-transparency:reduce){.gcard-in,.f-pill{background:rgba(255,255,255,.88);backdrop-filter:none;-webkit-backdrop-filter:none}}
+
+/* ── 마무리 구역: 위 모서리를 둥글게, 아래로 흐르는 띠 ── */
+.outro{position:relative;overflow:hidden;border-radius:clamp(28px,4vw,64px) clamp(28px,4vw,64px) 0 0;padding-bottom:0}
+.outro::before,.outro::after{content:"";position:absolute;z-index:0;border-radius:50%;pointer-events:none;filter:blur(40px)}
+.outro::before{width:28rem;height:28rem;right:-8rem;top:-10rem;background:radial-gradient(circle,rgba(111,141,255,.4),transparent 65%)}
+.outro::after{width:32rem;height:32rem;left:-12rem;bottom:-12rem;background:radial-gradient(circle,rgba(255,140,170,.26),transparent 65%)}
+.outro .wrap{position:relative;z-index:1}
+.ticker{position:relative;z-index:1;margin-top:clamp(56px,8vw,96px);padding:22px 0;border-top:1px solid rgba(255,255,255,.1);overflow:hidden}
+.ticker-track{display:flex;width:max-content;animation:ticker 26s linear infinite}
+.ticker-seq{display:flex;align-items:center;flex:none}
+.ticker span{padding:0 32px;font-size:clamp(28px,6vw,64px);font-weight:600;letter-spacing:-.035em;line-height:1.1;color:rgba(245,245,247,.9);white-space:nowrap}
+.ticker i{flex:none;width:10px;height:10px;border-radius:50%}
+.ticker .d1{background:var(--hl-yellow)}.ticker .d2{background:var(--hl-green)}.ticker .d3{background:var(--hl-blue)}.ticker .d4{background:var(--hl-pink)}.ticker .d5{background:var(--hl-violet)}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* ── 움직임 줄이기 ── */
+@media (prefers-reduced-motion:reduce){
+  .js .sec-head.rv,.js .section-intro.rv,.js .f-label.rv,.js .f-h.rv,.js .f-p.rv,.js .f-pill.rv,.js .fa-side.rv,.js .fa-cards.rv{filter:none;transform:none;transition:opacity .3s ease}
+  .fbg,.field-act,.f-p{transition:none}
+  .f-cue svg,.ticker-track{animation:none}
+  .ticker{overflow-x:auto}
+}

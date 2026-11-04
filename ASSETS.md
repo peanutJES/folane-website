@@ -22,3 +22,8 @@ HTML 문서 두 장과 SVG 도형으로 만든 설명용 그래픽입니다. 영
 - `assets/shots/demo-page.png`: Folane 앱에 포함된 검수용 sample.pdf 첫 쪽의 미리보기. 웹 체험의 쪽 레일에서 사용.
 
 - `assets/mac/glass-fold.svg`: Folane 웹 첫 화면용 유리 곡면 조명. 로컬 SVG로 그린 장식이며 맥북 렌더 프레임과 별개입니다.
+
+## 외부 라이브러리
+
+- three.js 0.160.0 (MIT): `field.js`가 `https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js`에서 필요할 때만 불러와요. 저장소에는 넣지 않았어요.
+- `field.js` 안의 F 리본 자리 좌표는 Folane 아이콘(`assets/icon.png`)의 밝은 리본 부분을 마스크로 떼어 고르게 뽑은 값이에요.

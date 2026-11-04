@@ -13,9 +13,11 @@
 <meta property="og:image" content="https://peanutjes.github.io/folane-website/assets/mac/poster.jpg">
 <link rel="icon" href="assets/icon.png">
 <link rel="apple-touch-icon" href="assets/icon.png">
+<script>try{var d=document.documentElement;if(!matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("intro");if(!location.hash&&!sessionStorage.getItem("folane-preroll"))d.classList.add("preroll-on")}}catch(e){}</script>
 <link rel="stylesheet" href="assets/fonts/pretendard.css">
 <link rel="preload" as="image" href="assets/mac/f001.webp?v=7">
 <link rel="stylesheet" href="styles.css?v=20261104-pretendard">
+<link rel="stylesheet" href="motion.css?v=20261104-motion">
 <script type="application/ld+json" id="folane-app-schema">
 {
   "@context": "https://schema.org",
@@ -45,6 +47,14 @@
 </script>
 </head>
 <body>
+<div class="preroll" id="preroll" aria-hidden="true">
+  <div class="preroll-in">
+    <img src="assets/icon.png" alt="" width="52" height="52">
+    <p class="preroll-status" id="preroll-status">PDF를 펼치는 중</p>
+    <div class="preroll-bar"><i id="preroll-fill"></i></div>
+    <p class="preroll-count" id="preroll-count">000%</p>
+  </div>
+</div>
 <a class="skip-link" href="#translate">본문으로 건너뛰기</a>
 
 <header class="nav top" id="nav">
@@ -156,6 +166,53 @@
     </div>
     <p class="ai-warn rv">작은 모델은 그럴듯한 출처나 사실을 지어낼 때가 있어요. 인용과 수치는 원문으로 확인해 주세요.</p>
   </div>
+</section>
+
+<section class="field" id="field" aria-labelledby="field-title" data-stage="0">
+  <div class="field-stage" id="field-stage" data-stage="0">
+    <div class="fbg b0"></div><div class="fbg b1"></div><div class="fbg b2"></div><div class="fbg b3"></div>
+    <canvas id="field-canvas" aria-hidden="true"></canvas>
+  </div>
+  <div class="field-act act-0">
+    <div class="fa-main">
+      <p class="f-label rv">01 · 읽는 동안</p>
+      <h2 class="f-h rv" id="field-title" style="--d:.08s">읽다 보면<br>생각이 흩어져요.</h2>
+    </div>
+    <div class="fa-side rv" style="--d:.18s">
+      <p class="f-p">찾아보고 싶은 낱말과 적어 두고 싶은 반론이 떠오르는데, 책장은 계속 넘어가요.</p>
+      <p class="f-cue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>계속 내려 보세요</p>
+    </div>
+  </div>
+  <div class="field-act act-1">
+    <div class="fa-main">
+      <p class="f-label rv">02 · 밑줄</p>
+      <h2 class="f-h rv" style="--d:.08s">밑줄 한 번이면<br>내려앉아요.</h2>
+      <p class="f-p rv" style="--d:.16s">형광펜으로 그은 표시는 PDF 표준 주석으로 저장돼요. 미리보기나 Acrobat에서 열어도 그대로 보여요.</p>
+    </div>
+    <div class="fa-cards rv" style="--d:.24s">
+      <article class="gcard"><div class="gcard-in"><header><span>01</span><span>표시</span><i></i></header><b>하이라이트 · 밑줄 · 취소선</b><p>문장을 고르고 막대에서 바로 칠해요</p></div></article>
+      <article class="gcard"><div class="gcard-in"><header><span>02</span><span>펜</span><i></i></header><b>꾹 누르면 직선</b><p>삐뚤게 그어도 끝에서 멈추면 반듯해져요</p></div></article>
+      <article class="gcard"><div class="gcard-in"><header><span>03</span><span>보기</span><i></i></header><b>표시 숨기기</b><p>단축키 한 번이면 원본만 보여요</p></div></article>
+    </div>
+  </div>
+  <div class="field-act act-2">
+    <div class="fa-main">
+      <p class="f-label rv">03 · 메모</p>
+      <h2 class="f-h rv" style="--d:.08s">흩어졌던 메모가<br>한자리에.</h2>
+    </div>
+    <div class="fa-side end">
+      <p class="f-p rv" style="--d:.12s">메모는 고른 줄 높이에 붙어요. 다음에 열어도 그 줄 옆에 그대로 있어요.</p>
+      <p class="f-pill rv" style="--d:.24s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.6 21.4 9.9 14.1 4.5 19.5V3.8l11.3 11.3H8.9"/></svg>커서로 휘저어 보세요</p>
+    </div>
+  </div>
+  <div class="field-act act-3">
+    <div class="fa-center">
+      <p class="f-label rv">04 · 다시 읽기</p>
+      <h2 class="f-h rv" style="--d:.1s">그리고 다시,<br>읽던 자리로.</h2>
+      <p class="f-p rv" style="--d:.2s">정리는 Folane에 맡기고 문장으로 돌아가요. 번역과 AI는 바로 아래에 있어요.</p>
+    </div>
+  </div>
+  <div class="field-tail" aria-hidden="true"></div>
 </section>
 
 <section class="sec dark-sec feature-section" id="features"><div class="wrap">
@@ -429,6 +486,7 @@
     <p class="lead">읽고 싶은 문서를, 이해하고 싶은 문장부터. Folane에서 이어 가세요.</p>
     <div class="hero-cta"><a class="pill pill-w" id="outro-dl" href="#download"><span id="outro-dl-label">Folane 받기</span><span class="sz" id="outro-dl-size"></span></a><a class="pill pill-g" href="https://github.com/peanutJES/folane-releases/blob/main/docs/guide.md">사용법 보기</a></div>
   </div>
+  <div class="ticker" aria-hidden="true"><div class="ticker-track"><div class="ticker-seq"><span>밑줄 긋고</span><i class="d1"></i><span>메모하고</span><i class="d2"></i><span>번역하고</span><i class="d3"></i><span>물어보고</span><i class="d4"></i><span>다시 읽고</span><i class="d5"></i></div><div class="ticker-seq"><span>밑줄 긋고</span><i class="d1"></i><span>메모하고</span><i class="d2"></i><span>번역하고</span><i class="d3"></i><span>물어보고</span><i class="d4"></i><span>다시 읽고</span><i class="d5"></i></div></div></div>
 </section>
 <noscript><p class="noscript-note">직접 써 보기와 화면 확대는 JavaScript를 켜면 사용할 수 있어요. 설치 파일과 사용법은 아래 링크에서 확인할 수 있어요.</p></noscript>
 </main>
@@ -451,5 +509,7 @@
 
 
 <script src="app.js?v=20261104-schema" defer></script>
+<script src="motion.js?v=20261104-motion" defer></script>
+<script type="module" src="field.js?v=20261104-motion"></script>
 </body>
 </html>
