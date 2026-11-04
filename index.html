@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Folane — 무료 PDF 리더, 문서 번역과 AI</title>
+<meta name="description" content="Folane은 macOS, Windows, Android에서 쓰는 무료 PDF 리더입니다. 밑줄과 메모를 PDF에 저장하고, AI에 문맥을 묻거나 관련 논문을 찾을 수 있습니다. Mac과 Windows에서는 원문 배치를 살린 문서 번역을 지원합니다.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="Folane — 무료 PDF 리더, 문서 번역과 AI">
+<meta property="og:description" content="Folane은 macOS, Windows, Android에서 쓰는 무료 PDF 리더입니다. 밑줄과 메모를 PDF에 저장하고, AI에 문맥을 묻거나 관련 논문을 찾을 수 있습니다. Mac과 Windows에서는 원문 배치를 살린 문서 번역을 지원합니다.">
+<link rel="canonical" href="https://peanutjes.github.io/folane-website/">
+<meta property="og:url" content="https://peanutjes.github.io/folane-website/">
+<meta property="og:image" content="https://peanutjes.github.io/folane-website/assets/mac/poster.jpg">
+<link rel="icon" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<link rel="stylesheet" href="assets/fonts/pretendard.css">
+<link rel="preload" as="image" href="assets/mac/f001.webp?v=7">
+<link rel="stylesheet" href="styles.css?v=20261104-pretendard">
+<script type="application/ld+json" id="folane-app-schema">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Folane",
+  "url": "https://peanutjes.github.io/folane-website/",
+  "description": "Folane은 macOS, Windows, Android에서 쓰는 무료 PDF 리더입니다. 밑줄과 메모를 PDF에 저장하고, AI에 문맥을 묻거나 관련 논문을 찾을 수 있습니다. Mac과 Windows에서는 원문 배치를 살린 문서 번역을 지원합니다.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": [
+    "macOS 11 or later (Apple silicon and Intel)",
+    "Windows 10 or 11 (64-bit)",
+    "Android 8 or later"
+  ],
+  "softwareVersion": "1.21.22",
+  "downloadUrl": [
+    "https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-1.21.22-mac.dmg",
+    "https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-Setup-1.21.22.exe",
+    "https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-1.21.22-android.apk"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": 0,
+    "url": "https://github.com/peanutJES/folane-releases/releases"
+  },
+  "sameAs": "https://github.com/peanutJES/folane-releases"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#translate">본문으로 건너뛰기</a>
+
+<header class="nav top" id="nav">
+  <div class="wrap">
+    <a class="nav-brand" href="#top"><img src="assets/icon.png" alt="" width="22" height="22">Folane</a>
+    <ul class="nav-links">
+      <li><a href="#translate">번역</a></li><li><a href="#ai">AI</a></li><li><a href="#features">기능</a></li>
+      <li><a href="#research">논문 검색</a></li>
+      <li><a href="#look">자세히 보기</a></li>
+      <li><a href="#try">써 보기</a></li>
+      <li><a href="#faq">자주 묻는 질문</a></li>
+    </ul>
+    <a class="nav-try" href="#try">써 보기</a>
+    <a class="nav-buy" href="#download">받기</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" id="hero">
+  <div class="hero-stage" id="hero-stage">
+    <canvas id="mac-seq" aria-hidden="true"></canvas>
+    <img class="mac-hi" id="mac-hi" src="assets/mac/screen.webp?v=7" alt="" aria-hidden="true">
+    <div class="hero-copy" id="hero-copy">
+      <h1 class="h1">번역하고, 묻고.<br>읽던 자리에서.</h1>
+      <p class="lead">원문의 배치를 살려 번역하고, 문맥을 아는 AI에 물어보세요.</p>
+      <div class="hero-cta">
+        <a class="pill pill-w" id="hero-dl" href="#download"><span id="hero-dl-label">Folane 받기</span><span class="sz" id="hero-dl-size"></span></a>
+        <button class="pill pill-g" type="button" data-film><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg>32초로 보기</button>
+      </div>
+      <p class="hero-note">맥 · 윈도우 · 안드로이드 · 무료</p>
+      <a class="hero-try" href="#translate">번역과 AI 살펴보기 <span aria-hidden="true">↗</span></a>
+      <p class="ios-note">아이폰·아이패드용 공개 다운로드는 아직 준비 중이에요.</p>
+    </div>
+    <img class="hero-static" src="assets/mac/open.webp?v=7" alt="Folane에서 PDF 문장 옆에 메모와 설명을 띄운 실제 화면" width="920" height="770">
+    <button class="hero-hint" id="hero-hint" type="button" aria-label="맥북을 펼쳐 Folane 화면 보기">화면 펼쳐 보기 <i aria-hidden="true"></i></button>
+    <div class="hero-controls" id="hero-controls" role="group" aria-label="맥북 장면 선택">
+      <span class="hero-progress" aria-hidden="true"></span>
+      <button type="button" data-hero-step="0" aria-current="step">접힘</button>
+      <button type="button" data-hero-step="0.60">펼침</button>
+      <button type="button" data-hero-step="0.98">화면</button>
+      <button class="hero-replay" id="hero-replay" type="button" aria-label="맥북 열리는 모션 다시 보기"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 6.5A6.3 6.3 0 1 1 3.8 13M4 2.5v4.7h4.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <div class="hero-cap" id="hero-cap" inert><p>맥용 Folane으로 연 실제 PDF 화면이에요.</p><a href="#look" data-show-shot="mac">화면 살펴보기 <span aria-hidden="true">↗</span></a></div>
+  </div>
+</section>
+
+<section class="sec dark-sec translation-section" id="translate"><div class="wrap">
+  <div class="sec-head rv"><p class="eyebrow">문서 번역</p><h2 class="h2">원문의 배치를 살려<br>읽고 싶은 언어로.</h2><p class="lead">제목과 본문은 원래 자리에. 그림과 표, 단 구성도 살려요. 번역한 PDF는 원본 옆에 따로 저장돼요.</p></div>
+  <div class="translation-demo rv">
+    <div class="translation-topline"><span>원문 · 영어</span><span>번역문 · <b id="translation-language-label">한국어</b></span></div>
+    <div class="translation-compare" id="translation-compare" style="--split:50%" aria-label="같은 배치의 원문과 번역문 비교">
+      <div class="document-original"><article class="document-page" lang="en" >
+      <div class="document-running"><span>FOLANE / READING NOTES</span><span>01</span></div>
+      <h3>Reading beyond the words</h3><p class="document-deck">A wider context. On the same page.</p>
+      <div class="document-columns"><div><h4>01 / CONTEXT</h4><p>A word becomes clearer when we read the sentences around it. The structure of a document shows how one idea leads to the next.</p><h4>02 / LAYOUT</h4><p>Headings, paragraphs, figures and tables each guide the way we read. Their relationships should remain clear across languages.</p></div>
+      <div><svg class="document-diagram" viewBox="0 0 360 100" fill="none" aria-hidden="true"><path d="M70 50H290" stroke="#B1B8BC" stroke-width="1.5"/><circle cx="60" cy="50" r="29" fill="#E2E9E7"/><circle cx="180" cy="50" r="29" fill="#CFDCD8"/><circle cx="300" cy="50" r="29" fill="#A8BFBA"/><path d="M50 38h17v23H50zM55 44h7M55 49h7M55 54h5M170 40h20v15h-12l-6 6v-6h-2zM290 40h20v22h-20zM295 46h10M295 51h10M295 56h7" stroke="#42625A" stroke-width="1.5" stroke-linejoin="round"/></svg><div class="document-diagram-labels"><span>Read</span><span>Understand</span><span>Note</span></div><p class="document-caption">Figure 1. From a sentence to an idea</p><h4>A place for your thoughts</h4><p>Keep questions and notes beside the passage. When you return, the context is still there.</p></div></div>
+      <div class="document-foot"><span>FOLANE</span><span>01 — 02</span></div>
+    </article></div>
+      <div class="document-translated"><article class="document-page" lang="ko" id="translated-page">
+      <div class="document-running"><span>FOLANE / READING NOTES</span><span>01</span></div>
+      <h3><span data-translation-text="0">문장을 넘어 읽기</span></h3><p class="document-deck"><span data-translation-text="1">같은 페이지에서, 더 넓은 문맥으로.</span></p>
+      <div class="document-columns"><div><h4><span data-translation-text="2">01 / 문맥</span></h4><p><span data-translation-text="3">낱말의 뜻은 앞뒤 문장과 함께 읽을 때 선명해집니다. 문서의 구조는 생각이 이어지는 순서를 보여 줍니다.</span></p><h4><span data-translation-text="4">02 / 배치</span></h4><p><span data-translation-text="5">제목과 본문, 그림과 표는 저마다 읽는 순서를 만듭니다. 언어가 바뀌어도 그 관계를 따라갈 수 있어야 합니다.</span></p></div>
+      <div><svg class="document-diagram" viewBox="0 0 360 100" fill="none" aria-hidden="true"><path d="M70 50H290" stroke="#B1B8BC" stroke-width="1.5"/><circle cx="60" cy="50" r="29" fill="#E2E9E7"/><circle cx="180" cy="50" r="29" fill="#CFDCD8"/><circle cx="300" cy="50" r="29" fill="#A8BFBA"/><path d="M50 38h17v23H50zM55 44h7M55 49h7M55 54h5M170 40h20v15h-12l-6 6v-6h-2zM290 40h20v22h-20zM295 46h10M295 51h10M295 56h7" stroke="#42625A" stroke-width="1.5" stroke-linejoin="round"/></svg><div class="document-diagram-labels"><span><span data-translation-text="6">읽기</span></span><span><span data-translation-text="7">이해</span></span><span><span data-translation-text="8">기록</span></span></div><p class="document-caption"><span data-translation-text="9">그림 1. 문장에서 생각으로 이어지는 흐름</span></p><h4><span data-translation-text="10">생각을 남기는 자리</span></h4><p><span data-translation-text="11">질문과 메모를 읽던 곳에 남기면, 다시 펼칠 때도 맥락을 이어 갈 수 있습니다.</span></p></div></div>
+      <div class="document-foot"><span>FOLANE</span><span>01 — 02</span></div>
+    </article></div>
+      <div class="translation-divider" aria-hidden="true"><span>‹ ›</span></div>
+    </div>
+    <div class="translation-controls" hidden>
+      <div class="translation-range"><label for="translation-split">끌어서 비교</label><input id="translation-split" type="range" min="0" max="100" value="50" aria-label="원문과 번역문 비교 위치" aria-valuetext="원문 50%, 한국어 50%"><button id="translation-replay" type="button">다시 보기 <span aria-hidden="true">↺</span></button></div>
+      <div class="translation-languages" role="group" aria-label="번역 배치 예시의 언어"><button type="button" data-translation-lang="ko" aria-pressed="true">한국어</button><button type="button" data-translation-lang="ja" aria-pressed="false">日本語</button><button type="button" data-translation-lang="de" aria-pressed="false">Deutsch</button></div>
+    </div>
+    <p class="translation-caption" id="translation-caption">배치 방식을 보여 주는 설명용 예시예요. 실제 번역은 앱에서 연결한 AI로 진행해요.</p>
+  </div>
+  <div class="translation-points">
+    <div><h3>언어를 고르면</h3><p>원문 언어는 자동으로 판단해요. 한국어·영어·일본어 등 10가지 번역 언어 옵션을 선택할 수 있어요.</p><details class="translation-language-list"><summary>지원 언어 보기</summary><p>한국어, 영어, 일본어, 중국어 간체·번체, 스페인어, 프랑스어, 독일어, 베트남어, 러시아어.<br>인식할 수 있는 원문 언어와 번역 품질은 연결한 AI에 따라 달라요.</p></details></div>
+    <div><h3>문서의 틀을 살려</h3><p>글자 크기와 색, 굵기까지 원문을 따라요. 번역이 길어지면 줄 간격과 글자 크기를 조정해 담아요.</p></div>
+    <div><h3>필요한 만큼 옮겨요</h3><p>한 쪽부터 문서 전체까지. 번역 규칙과 용어집을 지정하고, 번역한 쪽만 따로 받을 수도 있어요.</p><a class="text-action" href="#look" data-show-shot="translate">앱의 번역 화면 보기 <span aria-hidden="true">↗</span></a></div>
+  </div>
+  <p class="translation-footnote">문서 번역은 맥·윈도우에서 제공해요. 복잡한 배치나 스캔본은 결과를 확인해 주세요. PDF 구조와 번역문 길이에 따라 줄바꿈·글꼴·간격이 달라질 수 있어요.</p>
+</div></section>
+
+<section class="sec dark-sec ai-section" id="ai">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="eyebrow">문맥을 읽는 AI</p><h2 class="h2">문장 하나부터 문서 전체까지.</h2><p class="lead">읽던 자리에서 뜻을 묻고, 요약하고, 남겨 둘 답은 메모로 붙이세요.</p><a class="text-action" href="#try" data-try-action="question">AI 질문 체험 <span aria-hidden="true">↘</span></a></div>
+    <div class="ai-story rv">
+      <div class="ai-story-nav"><div class="ai-story-tabs" role="tablist" aria-label="AI 활용 고르기"><button type="button" id="ai-story-tab-0" role="tab" aria-selected="true" aria-controls="ai-story-panel-0"><span class="ai-tab-index" aria-hidden="true">01</span><span>문장에 묻기</span><small>선택한 문장의 뜻과 맥락</small></button><button type="button" id="ai-story-tab-1" role="tab" aria-selected="false" aria-controls="ai-story-panel-1" tabindex="-1"><span class="ai-tab-index" aria-hidden="true">02</span><span>문서에 묻기</span><small>쪽 범위를 골라 질문하고 요약</small></button></div></div>
+      <div class="ai-story-panel" id="ai-story-panel-0" role="tabpanel" aria-labelledby="ai-story-tab-0" tabindex="0">
+        <div class="ai-story-copy"><h3>문장 바로 옆에 설명이 열려요.</h3><p>궁금한 말을 고르면 그 문서의 맥락을 바탕으로 설명이 붙어요. 질문을 이어 가고, 대화도 PDF에 함께 남겨요.</p><button type="button" class="text-action" data-ai-film>설명 카드 영상 보기 <span aria-hidden="true">↗</span></button></div>
+        <a class="ai-story-screen" href="#look" data-show-shot="reading" aria-label="문장 옆 AI 설명 화면 확대"><img src="assets/shots/reading.jpg" alt="고른 아비투스 문장 옆에 AI 설명 카드가 열린 Folane 화면" loading="lazy" width="1280" height="846"></a>
+      </div>
+      <div class="ai-story-panel" id="ai-story-panel-1" role="tabpanel" aria-labelledby="ai-story-tab-1" tabindex="0" hidden>
+        <div class="ai-story-copy"><h3>질문에 필요한 쪽을 골라요.</h3><p>고른 부분·이 쪽·앞뒤 쪽·문서 전체에서 요약이나 개념 정리를 부탁하세요. 남겨 둘 답은 ‘메모로 남기기’로 붙여요.</p><a class="text-action" href="#look" data-show-shot="ask">문서 질문 화면 보기 <span aria-hidden="true">↗</span></a></div>
+        <a class="ai-story-screen" href="#look" data-show-shot="ask" aria-label="문서 질문과 요약 화면 확대"><img src="assets/shots/ask.jpg" alt="앞뒤 쪽을 범위로 골라 문서 내용을 정리하고 메모로 남기는 Folane 화면" loading="lazy" width="1280" height="846"></a>
+      </div>
+      <p class="translation-caption">Folane 실제 조작 화면 · Windows 1.21.16 · AI 응답은 시연용 예시</p>
+    </div>
+    <div class="ai-provider-intro"><h3>함께 읽을 AI는 직접 골라요.</h3><p>내 컴퓨터 모델이나 내 API 키를 연결하세요. 읽기·표시·메모·필기는 AI 없이도 사용할 수 있어요.</p></div>
+    <div class="ai-wrap">
+      <div class="ai-box rv"><h3>기기 안에서</h3><p>물은 글이 기기 밖으로 나가지 않아요.</p>
+        <div class="ai-row"><b>Apple Intelligence</b><span>무료 · macOS 26, M1 이상</span></div>
+        <div class="ai-row"><b>Folane에 받은 모델</b><span>앱의 AI 준비에서 선택</span></div>
+        <div class="ai-row"><b>LM Studio · Ollama</b><span>무료 · 내 컴퓨터</span></div>
+      </div>
+      <div class="ai-box dark rv"><h3>내 키로</h3><p>고른 글과 앞뒤 본문을 키를 넣은 회사로 보내요.</p>
+        <div class="ai-row"><b>Gemini</b><span>API 키 · 제공사 한도 적용</span></div>
+        <div class="ai-row"><b>ChatGPT</b><span>쓴 만큼 · Plus 구독과는 따로</span></div>
+        <div class="ai-row"><b>Claude</b><span>API 키 · 사용량에 따라 과금</span></div>
+      </div>
+    </div>
+    <p class="ai-warn rv">작은 모델은 그럴듯한 출처나 사실을 지어낼 때가 있어요. 인용과 수치는 원문으로 확인해 주세요.</p>
+  </div>
+</section>
+
+<section class="sec dark-sec feature-section" id="features"><div class="wrap">
+<div class="section-intro rv"><div><p class="eyebrow">읽는 흐름 그대로</p><h2 class="h2">읽고, 칠하고, 적는 일을<br>한 화면에서.</h2></div><p>궁금한 기능을 골라 보세요.<br>실제 Folane의 움직임 그대로.</p></div>
+<div class="feature-tabs" role="tablist" aria-label="기능 영상 선택"><button type="button" id="feature-tab-0" role="tab" aria-controls="feature-panel-0" aria-selected="true" tabindex="0">찾아보기</button><button type="button" id="feature-tab-1" role="tab" aria-controls="feature-panel-1" aria-selected="false" tabindex="-1">AI 설명</button><button type="button" id="feature-tab-2" role="tab" aria-controls="feature-panel-2" aria-selected="false" tabindex="-1">표시하기</button><button type="button" id="feature-tab-3" role="tab" aria-controls="feature-panel-3" aria-selected="false" tabindex="-1">메모 남기기</button><button type="button" id="feature-tab-4" role="tab" aria-controls="feature-panel-4" aria-selected="false" tabindex="-1">펜과 직선</button><button type="button" id="feature-tab-5" role="tab" aria-controls="feature-panel-5" aria-selected="false" tabindex="-1">새 노트</button></div><div class="feature-stage"><article class="feature-panel" id="feature-panel-0" role="tabpanel" tabindex="0" aria-labelledby="feature-tab-0">
+        <div class="tile-text"><h3>모르는 말에서 멈추지 않도록.</h3><p>글을 고르고 위키백과를 열면 설명이 문장 옆에 붙어요.</p></div>
+        <div class="tile-media"><video id="v-lookup" muted playsinline loop preload="none" poster="assets/video/lookup.jpg" data-feature-video data-src="assets/video/lookup.mp4" aria-label="‘에코챔버’를 골라 위키백과 카드를 여는 영상"></video><button type="button" class="expand-video" data-expand="v-lookup" aria-label="찾아보기 영상 크게 보기">크게 보기 <span aria-hidden="true">↗</span></button><button class="vbtn" type="button" data-for="v-lookup" aria-label="영상 멈추기"><svg class="ia" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="ip" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></button></div>
+      </article><article class="feature-panel" id="feature-panel-1" role="tabpanel" tabindex="0" aria-labelledby="feature-tab-1" hidden>
+        <div class="tile-text"><h3>읽는 문맥까지 함께 물어보세요.</h3><p>선택한 글과 앞뒤 문맥을 바탕으로 연결한 AI에 질문해요.</p></div>
+        <div class="tile-media"><video id="v-ai" muted playsinline loop preload="none" poster="assets/video/ai.jpg" data-feature-video data-src="assets/video/ai.mp4" aria-label="‘아비투스’를 골라 AI 설명 카드를 여는 영상"></video><button type="button" class="expand-video" data-expand="v-ai" aria-label="AI 설명 영상 크게 보기">크게 보기 <span aria-hidden="true">↗</span></button><button class="vbtn" type="button" data-for="v-ai" aria-label="영상 멈추기"><svg class="ia" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="ip" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></button></div>
+      </article><article class="feature-panel" id="feature-panel-2" role="tabpanel" tabindex="0" aria-labelledby="feature-tab-2" hidden>
+        <div class="tile-text"><h3>중요한 문장을 내 색으로.</h3><p>하이라이트·밑줄·취소선. 표시를 잠깐 숨기면 원문만 보여요.</p></div>
+        <div class="tile-media"><video id="v-marks" muted playsinline loop preload="none" poster="assets/video/marks.jpg" data-feature-video data-src="assets/video/marks.mp4" aria-label="하이라이트·밑줄·취소선을 긋고 표시를 숨겼다 다시 보이는 영상"></video><button type="button" class="expand-video" data-expand="v-marks" aria-label="표시하기 영상 크게 보기">크게 보기 <span aria-hidden="true">↗</span></button><button class="vbtn" type="button" data-for="v-marks" aria-label="영상 멈추기"><svg class="ia" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="ip" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></button></div>
+      </article><article class="feature-panel" id="feature-panel-3" role="tabpanel" tabindex="0" aria-labelledby="feature-tab-3" hidden>
+        <div class="tile-text"><h3>생각난 바로 그 자리에.</h3><p>글을 고르고 메모를 남기세요. 다시 읽을 때도 문장 옆에서 만나요.</p></div>
+        <div class="tile-media"><video id="v-memo" muted playsinline loop preload="none" poster="assets/video/memo.jpg" data-feature-video data-src="assets/video/memo.mp4" aria-label="고른 글에 메모를 남기는 영상"></video><button type="button" class="expand-video" data-expand="v-memo" aria-label="메모 남기기 영상 크게 보기">크게 보기 <span aria-hidden="true">↗</span></button><button class="vbtn" type="button" data-for="v-memo" aria-label="영상 멈추기"><svg class="ia" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="ip" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></button></div>
+      </article><article class="feature-panel" id="feature-panel-4" role="tabpanel" tabindex="0" aria-labelledby="feature-tab-4" hidden>
+        <div class="tile-text"><h3>손으로 그리고, 반듯하게.</h3><p>펜으로 자유롭게 그리다가 끝에서 잠시 멈추면 직선이 돼요.</p></div>
+        <div class="tile-media"><video id="v-pen" muted playsinline loop preload="none" poster="assets/video/pen.jpg" data-feature-video data-src="assets/video/pen.mp4" aria-label="펜으로 동그라미를 치고 꾹 눌러 직선을 긋는 영상"></video><button type="button" class="expand-video" data-expand="v-pen" aria-label="펜과 직선 영상 크게 보기">크게 보기 <span aria-hidden="true">↗</span></button><button class="vbtn" type="button" data-for="v-pen" aria-label="영상 멈추기"><svg class="ia" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="ip" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></button></div>
+      </article><article class="feature-panel" id="feature-panel-5" role="tabpanel" tabindex="0" aria-labelledby="feature-tab-5" hidden>
+        <div class="tile-text"><h3>빈 종이부터 시작해도 좋아요.</h3><p>줄·모눈·점·코넬 노트. 종이를 골라 PDF 노트를 만들어요.</p></div>
+        <div class="tile-media"><video id="v-note" muted playsinline loop preload="none" poster="assets/video/note.jpg" data-feature-video data-src="assets/video/note.mp4" aria-label="새 노트 창에서 종이를 골라 노트를 만들고 펜으로 그리는 영상"></video><button type="button" class="expand-video" data-expand="v-note" aria-label="새 노트 영상 크게 보기">크게 보기 <span aria-hidden="true">↗</span></button><button class="vbtn" type="button" data-for="v-note" aria-label="영상 멈추기"><svg class="ia" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="ip" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></button></div>
+      </article></div>
+<div class="feature-controls" aria-label="선택한 영상 조작">
+  <button id="feature-restart" type="button" aria-label="선택한 영상 처음부터 재생">↺ <span>처음부터</span></button>
+  <label class="sr-only" for="feature-seek">영상 재생 위치</label>
+  <input id="feature-seek" type="range" min="0" max="100" value="0" step="0.1" disabled>
+  <output id="feature-time" for="feature-seek" aria-hidden="true">0:00 / 0:00</output>
+  <a id="feature-action" href="#try" data-try-action="lookup">직접 찾아보기 <span aria-hidden="true">↗</span></a>
+</div>
+<p class="bento-note">Folane 실제 조작 영상 · Windows 1.21.16 · AI 응답은 시연용 예시</p>
+</div></section>
+
+<section class="sec dark-sec research-section" id="research">
+  <div class="wrap research-grid">
+    <div class="research-copy rv">
+      <p class="eyebrow">관련 논문 찾기</p>
+      <h2 class="h2">읽다가 만난 개념,<br>논문으로 이어 읽기.</h2>
+      <p class="lead">궁금한 낱말이나 밑줄을 고르면 OpenAlex에서 관련 논문을 찾아요. 저자·학술지·발행 연도를 보고, 제목을 눌러 논문 페이지로 이동할 수 있어요.</p>
+      <a class="research-cta" href="#try" data-try-action="papers">논문 검색 체험 <span aria-hidden="true">↘</span></a>
+      <p class="research-note">AI 연결 없이 검색할 수 있어요. 국내 논문은 제공되는 경우 DBpia나 KCI로 이어져요.</p>
+    </div>
+    <div class="research-preview rv">
+      <div class="research-preview-head"><span>검색어</span><strong>에코챔버</strong><span class="research-example">결과 예시</span></div>
+      <ol class="research-results">
+        <li><span aria-hidden="true">01</span><div><p>PNAS · 2021</p><a href="https://doi.org/10.1073/pnas.2023301118" target="_blank" rel="noopener noreferrer" lang="en">The echo chamber effect on social media <span aria-hidden="true">↗</span></a><p>Matteo Cinelli 외</p></div></li>
+        <li><span aria-hidden="true">02</span><div><p>Public Opinion Quarterly · 2016</p><a href="https://doi.org/10.1093/poq/nfw006" target="_blank" rel="noopener noreferrer" lang="en">Filter Bubbles, Echo Chambers, and Online News Consumption <span aria-hidden="true">↗</span></a><p>Seth Flaxman, Sharad Goel, Justin M. Rao</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="try">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="eyebrow">설치 없이 독서 체험</p><h2 class="h2">한번 그어보세요.</h2><p class="lead">문장을 드래그하거나 아래 낱말을 골라 보세요.<br>읽던 글에서 AI, 위키백과, 논문 검색이 열려요.</p></div>
+    <div class="demo-actions" aria-label="체험 시작하기"><button type="button" data-try-action="highlight">문장 칠하기</button><button type="button" data-try-action="memo">메모 남기기</button><button type="button" data-try-action="note">노트에 쓰기</button></div>
+    <p class="demo-status" role="status" id="demo-status">‘에코챔버’를 고르면 문장 옆에 도구가 나타나요.</p>
+    <div class="quick">예시 낱말 <button type="button" data-pick="에코챔버">에코챔버</button><button type="button" data-pick="아비투스">아비투스</button><button type="button" data-pick="필터 버블">필터 버블</button></div>
+    <div class="app reader-window rv" id="app">
+      <div class="app-bar">
+        <div class="reader-window-controls"><span class="mac-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><button type="button" id="reader-thumbs-toggle" aria-label="쪽 미리보기 접기" aria-expanded="true" aria-controls="reader-thumbs"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M9 5v14M5.5 9H7m-1.5 3H7m-1.5 3H7"/></svg></button></div>
+        <div class="app-tabs" role="tablist" aria-label="연습 칸">
+          <button class="app-tab reader-file" role="tab" id="tab-pdf" aria-controls="pane-pdf" aria-selected="true"><span>연습.pdf</span><small>1 / 1쪽</small></button>
+          <button class="app-tab" role="tab" id="tab-note" aria-controls="pane-note" aria-selected="false" tabindex="-1">새 노트</button>
+        </div>
+        <div class="app-tools reader-actions" id="pdf-tools">
+          <div class="reader-tools" role="group" aria-label="PDF 도구">
+            <button id="reader-select" type="button" aria-label="본문 선택" aria-pressed="true" title="본문 선택"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 3 15 10-7 1-3 7z"/></svg></button>
+            <button type="button" data-reader-mark="yellow" title="하이라이트" aria-label="하이라이트"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 15 9-10 4 4-9 10H5zM4 21h10"/></svg></button>
+            <button type="button" data-reader-mark="ul" title="밑줄" aria-label="밑줄 그리기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v7a5 5 0 0 0 10 0V4M5 20h14"/></svg></button>
+            <button type="button" data-reader-mark="memo" title="메모 남기기" aria-label="선택한 글에 메모"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v11l-5 5H5zM14 20v-5h5"/></svg></button>
+          </div>
+          <div class="reader-history">
+            <button type="button" id="hide-btn" aria-pressed="false" title="표시 숨기기 (Ctrl+Shift+H)">표시 숨기기</button><button type="button" id="mark-undo" disabled>되돌리기</button><button type="button" id="reset-btn">지우기</button>
+          </div>
+          <div class="reader-tools" role="group" aria-label="찾아보기 도구">
+            <button id="reader-memo" type="button" title="메모 칸" aria-label="메모 칸" aria-pressed="false" aria-controls="reader-lane"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M15 5v14"/></svg></button>
+            <button id="study-ai" type="button" title="문서에 묻기" aria-label="문서에 묻기" aria-pressed="true" aria-controls="reader-lane"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4m0-14v6m-3-3h6"/></svg></button>
+          </div>
+        </div>
+      </div>
+      <div class="app-body" id="pane-pdf" role="tabpanel" aria-labelledby="tab-pdf">
+        <nav class="reader-thumbs" id="reader-thumbs" aria-label="쪽 미리보기">
+          <div class="reader-thumbs-label"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg><span>쪽 미리보기</span></div>
+          <button id="reader-page-one" type="button" aria-label="1쪽 본문으로 이동" aria-current="page"><img src="assets/shots/demo-page.png" width="227" height="320" alt=""><span>1</span></button>
+        </nav>
+        <div class="sheet-col">
+          <article class="sheet" id="sheet" tabindex="-1">
+            <div id="sheet-text">
+              <h3>1. 알고리즘과 공론장</h3>
+              <p>소셜 미디어의 추천 알고리즘은 이용자가 이미 좋아하는 정보를 더 많이 보여 준다. 이런 환경에서 사람들은 비슷한 의견만 되풀이해 듣는 에코챔버에 갇히기 쉽다. 엘리 프레이저는 검색과 추천이 만드는 이 보이지 않는 막을 필터 버블이라고 불렀다.</p>
+              <p>부르디외는 취향이 계급을 드러내는 표지라고 보았다. 그는 아비투스와 문화자본이라는 개념으로 취향의 사회적 기원을 설명했다. 탈진실 시대에는 사실보다 감정이 여론을 더 크게 움직인다는 지적도 있다.</p>
+            </div>
+            <span class="folio">1</span>
+          </article>
+          <div class="fbar" id="fbar" inert role="toolbar" aria-label="고른 글 막대">
+            <button type="button" data-color="yellow" title="노랑 하이라이트" aria-label="노랑 하이라이트"><span class="sw" style="background:#FFD84A"></span></button>
+            <button type="button" data-color="green" title="초록 하이라이트" aria-label="초록 하이라이트"><span class="sw" style="background:#6ED68C"></span></button>
+            <button type="button" data-color="blue" title="파랑 하이라이트" aria-label="파랑 하이라이트"><span class="sw" style="background:#78A0FF"></span></button>
+            <button type="button" data-color="pink" title="분홍 하이라이트" aria-label="분홍 하이라이트"><span class="sw" style="background:#FF8CAA"></span></button>
+            <button type="button" data-color="violet" title="보라 하이라이트" aria-label="보라 하이라이트"><span class="sw" style="background:#B48CFF"></span></button>
+            <span class="sep"></span>
+            <button type="button" data-kind="ul" title="밑줄" aria-label="밑줄"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7 4v7a5 5 0 0 0 10 0V4M5 20h14"/></svg></button>
+            <button type="button" data-kind="st" title="취소선" aria-label="취소선"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12h16M16 6.5c-.8-1.6-2.4-2.5-4.3-2.5C9.3 4 7.8 5.3 7.8 7c0 3.6 8.6 2.6 8.6 7 0 2-1.8 3.9-4.6 3.9-2.2 0-3.9-1-4.7-2.8"/></svg></button>
+            <button type="button" data-kind="memo" title="메모 남기기" aria-label="메모 남기기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 4h14v11l-5 5H5zM14 20v-5h5"/></svg></button>
+            <button class="fbar-study" type="button" data-study="ai" aria-label="AI에 묻기">AI</button>
+            <button class="fbar-study" type="button" data-study="wiki" aria-label="위키백과에서 찾아보기">위키</button>
+            <button class="fbar-study" type="button" data-study="papers" aria-label="관련 논문 찾기">논문</button>
+          </div>
+        </div>
+        <aside class="lane reader-lane" id="reader-lane" data-view="ai" aria-label="찾아보기와 메모">
+          <section class="study" id="study" aria-labelledby="study-title">
+            <header class="study-head"><svg class="study-head-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4m0-14v6m-3-3h6"/></svg><div><h3 id="study-title">지금 쓰는 AI</h3><small id="study-subtitle">시연용 모델</small></div><button id="study-close" type="button" title="사이드바 닫기" aria-label="사이드바 닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M15 5v14"/></svg></button></header>
+            <div class="reader-scope" id="reader-scope" role="group" aria-label="질문 범위">
+              <button type="button" data-reader-scope="selection" aria-pressed="true">고른 부분</button><button type="button" data-reader-scope="page" aria-pressed="false">이 쪽</button><button type="button" disabled title="체험 문서는 한 쪽이에요">앞뒤 쪽</button><button type="button" data-reader-scope="document" aria-pressed="false">문서 전체</button>
+            </div>
+            <div class="study-panel" id="study-panel" tabindex="-1">
+              <p class="study-context"><span id="study-context-label">예시 낱말</span> <strong id="study-context">에코챔버</strong></p>
+              <div class="study-result" id="study-result" aria-live="polite"><p>예시 질문을 누르거나 직접 입력해 보세요.</p></div>
+              <div class="study-prompts" id="study-prompts"><button type="button" data-study-question="이 문장에서 무슨 뜻인가요?">문맥 속 뜻 묻기</button><button type="button" data-study-question="예를 들어 설명해 주세요.">예시로 설명하기</button></div>
+              <form id="study-form" class="study-form">
+                <label for="study-query" id="study-label" class="sr-only">AI 질문</label>
+                <input id="study-query" type="text" maxlength="160" placeholder="예: 이 문장에서 무슨 뜻인가요?" required autocomplete="off">
+                <button id="study-submit" type="submit" aria-label="질문 보내기">↑</button>
+              </form>
+            </div>
+            <footer class="study-disclosure"><button type="button" id="study-reset">새 대화</button><span>시연 · 외부 전송 없음</span></footer>
+          </section>
+          <div id="reader-notes" hidden><div class="lane-head"><b>1쪽 메모</b><span id="lane-count">0개</span></div>
+          <div class="cards" id="cards"><p class="lane-empty" id="lane-empty">문장에 붙인 메모가 여기에 쌓여요.</p></div></div>
+        </aside>
+      </div>
+      <div class="app-body" id="pane-note" role="tabpanel" aria-labelledby="tab-note" hidden>
+        <div class="note-col">
+          <div class="note-tools">
+            <div class="nseg" role="group" aria-label="종이"><button type="button" data-paper="lines" aria-pressed="false">줄 노트</button><button type="button" data-paper="grid" aria-pressed="true">모눈</button><button type="button" data-paper="dots" aria-pressed="false">점 종이</button><button type="button" data-paper="blank" aria-pressed="false">빈 종이</button></div>
+            <div class="nseg" role="group" aria-label="종이 색"><button type="button" data-tone="white" aria-pressed="false">흰 종이</button><button type="button" data-tone="cream" aria-pressed="true">미색 종이</button></div>
+            <button class="dot-btn" type="button" data-ink="#1F2233" aria-pressed="true" style="background:#1F2233" aria-label="검정 펜"></button>
+            <button class="dot-btn" type="button" data-ink="#1219ED" aria-pressed="false" style="background:#1219ED" aria-label="파랑 펜"></button>
+            <button class="dot-btn" type="button" data-ink="#E8505B" aria-pressed="false" style="background:#E8505B" aria-label="빨강 펜"></button>
+            <button class="dot-btn" type="button" data-ink="#F08A1C" aria-pressed="false" style="background:#F08A1C" aria-label="주황 펜"></button>
+            <div class="nseg" role="group" aria-label="도구" style="margin-left:auto"><button type="button" id="undo-btn">되돌리기</button><button type="button" id="erase-btn" aria-pressed="false">지우개</button><button type="button" id="clear-btn">비우기</button></div>
+          </div>
+          <div class="paper p-grid cream" id="paper"><canvas id="ink" aria-label="노트 종이. 마우스나 펜으로 그려요"></canvas><span class="hint">그어 보세요. 끝에서 잠깐 멈추면 직선이 돼요</span><span class="snap" id="snap">반듯하게</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="try-note">표시·메모·필기는 이 브라우저에 저장돼요. 검색 결과는 체험용이며 위키백과와 논문 링크는 실제 페이지를 열어요.</p>
+    <dialog class="paper-window" id="paper-window" aria-labelledby="paper-window-title">
+      <header class="reader-titlebar"><form method="dialog"><button type="submit" aria-label="논문 창 닫기" autofocus><span aria-hidden="true">×</span></button></form><strong>관련 논문</strong><span>웹 체험</span></header>
+      <div class="paper-window-body">
+        <h3 id="paper-window-title">관련 논문</h3>
+        <p class="paper-query-row">검색어 <span><span id="paper-keyword"></span> <strong id="paper-count"></strong></span></p>
+        <div id="paper-results" aria-live="polite" tabindex="0" aria-label="관련 논문 결과"></div>
+        <p class="paper-source-note">OpenAlex 검색 화면을 본뜬 체험이에요. 제목을 누르면 실제 논문 페이지가 열려요.</p>
+      </div>
+    </dialog>
+  </div>
+</section>
+
+<section class="sec dark-sec anywhere" id="anywhere">
+  <div class="wrap">
+    <div class="sec-head rv" style="margin-bottom:0">
+      <h2 class="h2">칠한 자국은<br>PDF 안에 남아요.</h2>
+      <p class="lead">하이라이트·밑줄·필기는 표준 PDF 주석으로 저장해요.<br>기기를 옮기거나 다른 PDF 앱에서 열어도 이어서 읽을 수 있어요.</p>
+    </div>
+    <div class="devices rv">
+      <a class="device-link mb" href="#look" data-show-shot="mac"><img src="assets/mac/open.webp?v=7" alt="맥용 Folane 화면 자세히 보기" loading="lazy"><span>맥 화면 보기 ↗</span></a>
+      <a class="device-link phone" href="#look" data-show-shot="phone"><img src="assets/screens/android-panel.jpg" alt="안드로이드 Folane 화면 자세히 보기" loading="lazy" width="405" height="900"><span>휴대폰 보기 ↗</span></a>
+    </div>
+    <div class="annots rv" aria-label="저장하는 주석 종류"><span>하이라이트</span><span>밑줄</span><span>취소선</span><span>필기</span><span>메모</span><span>도장</span></div>
+  </div>
+</section>
+
+<section class="sec" id="look">
+  <div class="wrap">
+    <div class="sec-head rv"><h2 class="h2">자세히 보기.</h2><p class="lead">눌러서 키우고, 끌어서 살펴보세요.</p></div>
+    <div class="seg" role="tablist" aria-label="화면 고르기" id="look-tabs"></div>
+    <p id="lens-help" class="sr-only">Enter로 확대, 확대한 뒤 방향키로 이동, Escape로 전체 보기.</p>
+    <div class="lens rv" id="lens" role="tabpanel" tabindex="0" aria-describedby="lens-help" aria-label="앱 화면"><div class="lens-in" id="lens-in"><img id="lens-img" alt="" draggable="false" src="assets/shots/mac.jpg"></div><button class="lens-reset" id="lens-reset" type="button" hidden>전체 보기 <span aria-hidden="true">↙</span></button></div>
+    <div class="lens-cap" aria-live="polite"><div><h3 id="cap-h">맥</h3><p id="cap-p">+를 눌러 보세요.</p></div><button type="button" id="cap-back" hidden>전체 보기</button></div>
+    <p class="lens-note" id="lens-note"></p>
+  </div>
+</section>
+
+
+
+<section class="sec" id="more" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv"><h2 class="h2">그 밖에도.</h2></div>
+    <div class="more">
+      <article class="mcard rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5a1 1 0 0 1 1-1h2M17 4h2a1 1 0 0 1 1 1v2M20 17v2a1 1 0 0 1-1 1h-2M7 20H5a1 1 0 0 1-1-1v-2M8 9h8M8 12h8M8 15h5"/></svg><h3>스캔본 글자 인식</h3><p>스캔한 PDF에서도 찾기와 밑줄이 돼요.</p><small>기기 안에서 읽어요</small></article>
+      <article class="mcard rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h8M8 3v2M5.5 5c.7 3 2.8 5.5 5.5 6.5M10.5 5c-.6 2.8-2.6 5.3-5.5 6.5M13 20l4-10 4 10M14.5 16.5h5"/></svg><h3>고른 문장 번역</h3><p>읽다가 고른 부분만 메모 카드에서 번역해요.</p><small>문맥을 따라, 필요한 부분만</small></article>
+      <article class="mcard rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h9l3 3v13H6z"/><path d="M9 11h6M9 14h6M9 17h3"/><circle cx="17" cy="17" r="3"/><path d="m21 21-1.8-1.8"/></svg><h3>관련 논문 찾기</h3><p>밑줄 친 개념으로 논문 목록을 받아요.</p><small>OpenAlex 검색 · DBpia 연결</small></article>
+      <article class="mcard rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l5 4V6L7 10z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/></svg><h3>소리로 읽기</h3><p>쪽수·각주는 건너뛰고 본문만 읽어요.</p><small>소리 파일로 저장돼요</small></article>
+      <article class="mcard rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><h3>음성 메모·실시간 자막</h3><p>녹음하면 들리는 말과 번역이 카드에 붙어요.</p><small>받아쓰기·요약도 돼요</small></article>
+      <article class="mcard rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><h3>내 라이브러리</h3><p>폴더 하나에 PDF와 노트를 모아 분류해요.</p><small>드라이브 폴더면 기기끼리 맞춰져요</small></article>
+      <article class="mcard rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m7 21-4-4L14 6l4 4L7 21zM14 6l3-3 4 4-3 3M8 21h13"/></svg><h3>지우개</h3><p>인쇄하면서 굳은 밑줄과 서명까지 지워요.</p><small>실행 취소 한 번이면 돌아와요</small></article>
+      <article class="mcard rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6V4h16v2M12 4v16M9 20h6"/></svg><h3>글상자·글자 고치기</h3><p>본문 한 줄을 같은 자리에서 고쳐 써요.</p><small>PDF 표준 글상자예요</small></article>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="sec free" id="privacy">
+  <div class="wrap">
+    <p class="free-big rv">무료.</p>
+    <p class="lead rv" style="margin-top:20px">가입도 광고도 없어요. 클라우드 AI를 연결하면 사용한 AI 서비스의 요금이 별도로 적용돼요.</p>
+    <div class="perks">
+      <div class="perk rv"><h3>새 버전은 알아서</h3><p>켤 때와 켜 둔 동안 6시간마다 확인해요.</p></div>
+      <div class="perk rv"><h3>세 기기에서 이어 읽기</h3><p>맥·윈도우·안드로이드에서 같은 PDF를 이어 써요.</p></div>
+      <div class="perk rv"><h3>기록은 안 모아요</h3><p>오류 기록도 그 기기 안에만 남겨요.</p></div>
+      <div class="perk rv"><h3>키는 그 기기에만</h3><p>AI 키는 기기마다 암호화해 둬요.</p></div>
+    </div>
+    <details class="out rv">
+      <summary>Folane이 밖으로 보내는 것</summary>
+      <div class="out-body">
+        <div class="out-row"><b>위키백과로 찾아볼 때</b><span>밑줄 친 낱말</span><span>위키백과 · 나무위키 · 구글</span></div>
+        <div class="out-row"><b>클라우드 AI를 쓸 때</b><span>고른 글과 앞뒤 본문, 첨부한 파일</span><span>키를 넣은 회사</span></div>
+        <div class="out-row"><b>관련 논문 찾기</b><span>검색어만</span><span>OpenAlex</span></div>
+        <div class="out-row"><b>참고문헌 추천</b><span>고른 말과 앞뒤 본문, AI가 고른 문헌의 제목·저자</span><span>연결한 AI 회사, OpenAlex · Crossref · Open Library</span></div>
+        <div class="out-row"><b>업데이트 확인</b><span class="no">문서 내용은 전송하지 않음</span><span>GitHub에서 버전 정보만 받아요</span></div>
+        <div class="out-row"><b>AI 모델 받기</b><span class="no">문서 내용은 전송하지 않음</span><span>GitHub · Hugging Face에서 내려받아요</span></div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="sec" id="download">
+  <div class="wrap">
+    <div class="sec-head rv"><h2 class="h2">Folane 받기.</h2><p class="lead">한 번 설치하면 다음 버전부터는 앱이 알아서 받아요.</p><p class="release-info"><span data-version>1.21.22</span> <span aria-hidden="true">·</span> <span data-date>2026년 11월 4일</span> 업데이트</p></div>
+    <div class="dl-grid">
+      <article class="dl rv" data-os="mac"><span class="mine-tag">지금 쓰는 기기</span><h3>맥</h3><p class="req">macOS 11(빅서) 이상. 애플 실리콘과 인텔 모두.</p><p class="file" data-file="mac">Folane-1.21.22-mac.dmg</p><a class="pill pill-b" data-dl="mac" href="https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-1.21.22-mac.dmg">DMG 받기 <span class="sz" data-size="mac">26.7MB</span></a></article>
+      <article class="dl rv" data-os="win"><span class="mine-tag">지금 쓰는 기기</span><h3>윈도우</h3><p class="req">윈도우 10·11, 64비트. 설치 버전.</p><p class="file" data-file="win">Folane-Setup-1.21.22.exe</p><a class="pill pill-b" data-dl="win" href="https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-Setup-1.21.22.exe">설치 파일 받기 <span class="sz" data-size="win">146MB</span></a></article>
+      <article class="dl rv" data-os="android"><span class="mine-tag">지금 쓰는 기기</span><h3>안드로이드</h3><p class="req">안드로이드 8 이상. 휴대폰과 태블릿.</p><p class="file" data-file="android">Folane-1.21.22-android.apk</p><a class="pill pill-b" data-dl="android" href="https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-1.21.22-android.apk">APK 받기 <span class="sz" data-size="android">33.9MB</span></a></article>
+    </div>
+    <div class="dl-foot"><span>내 기기에 맞는 설치 파일 하나만 받으면 돼요.</span><a class="link" href="https://github.com/peanutJES/folane-releases/releases">모든 버전과 바뀐 내용 →</a></div>
+    <details class="warn">
+      <summary>설치할 때 경고가 뜨는 이유</summary>
+      <div class="warn-body">
+        <p>Folane은 앱 스토어를 거치지 않았고, 해마다 돈을 내는 개발자 인증을 받지 않았어요. 그래서 운영체제가 “누가 만들었는지 확인할 수 없다”는 경고를 띄워요. 공식 배포 저장소에서 받은 파일인지 확인한 뒤 설치해 주세요.</p>
+        <div class="wrow"><b>맥</b><span>“Apple에서 확인할 수 없습니다” — 공증을 받지 않은 앱이라서</span><em>시스템 설정 → 개인정보 보호 및 보안에서 ‘그래도 열기’</em></div>
+        <div class="wrow"><b>윈도우</b><span>“Windows의 PC 보호” — 코드 서명 인증서가 없어서</span><em>추가 정보 → 실행</em></div>
+        <div class="wrow"><b>안드로이드</b><span>‘출처를 알 수 없는 앱’ 경고 — 플레이 스토어 밖에서 받아서</span><em>공식 APK를 확인한 뒤 설치 출처 허용</em></div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv"><h2 class="h2">자주 묻는 질문.</h2></div>
+    <div class="faq">
+      <details><summary>번역하면 문서의 디자인도 유지되나요?</summary><div class="ans"><p>원문이 있던 자리에 번역문을 넣고, 그림·표·배경과 단 구성을 살린 새 PDF를 만들어요. 원본은 바꾸지 않아요. 글자 크기·색·굵기도 원문에 맞추되, 번역문이 길면 줄 간격이나 글자 크기를 조정해요. 복잡한 PDF나 스캔본에서는 배치가 달라질 수 있어 결과 확인이 필요해요. 원본의 밑줄과 메모는 번역본에 자동으로 옮기지 않아요.</p></div></details>
+      <details><summary>어떤 언어로 번역할 수 있나요?</summary><div class="ans"><p>맥·윈도우 문서 번역에서 한국어, 영어, 일본어, 중국어 간체·번체, 스페인어, 프랑스어, 독일어, 베트남어, 러시아어를 선택할 수 있어요. 원문 언어는 자동으로 판단해요. 인식 가능한 원문 언어와 번역 품질은 연결한 AI에 따라 달라요.</p></div></details>
+      <details><summary>정말 돈을 안 내도 되나요?</summary><div class="ans"><p>네. 앱은 무료예요. ChatGPT나 Claude처럼 쓴 만큼 요금이 나오는 AI 키를 넣으면, 그 요금은 키를 발급한 OpenAI·Anthropic에 내요. Apple Intelligence와 내 컴퓨터 모델은 별도 API 요금 없이 사용해요. 클라우드 AI의 요금과 무료 한도는 제공사에 따라 달라요.</p></div></details>
+      <details><summary>ChatGPT Plus나 Claude Pro 구독으로 쓸 수 있나요?</summary><div class="ans"><p>채팅 구독으로는 API를 쓸 수 없어서 API 키를 따로 받아야 해요. 요금과 제공 혜택은 각 AI 서비스의 최신 안내를 확인해 주세요.</p></div></details>
+      <details><summary>다른 PDF 앱에서도 제 표시가 보이나요?</summary><div class="ans"><p>하이라이트·밑줄·필기 같은 표준 PDF 주석은 미리보기·Adobe Acrobat에서도 보여요. AI 대화 등 Folane 전용 내용은 Folane에서 확인해 주세요.</p></div></details>
+      <details><summary>스캔한 PDF도 밑줄을 그을 수 있나요?</summary><div class="ans"><p>‘글자 인식하기’를 누르면 기기 안에서 글자를 읽어 찾기와 밑줄, 찾아보기가 돼요.</p></div></details>
+      <details><summary>사이트의 화면은 어느 기기에서 찍었나요?</summary><div class="ans"><p>첫 화면의 맥북은 3D 모델이며, 그 화면에는 맥용 Folane 1.21.17을 실제로 찍어 넣었어요. 윈도우용에서 칠하고 메모한 PDF를 그대로 열었어요. 기능 영상과 ‘자세히 보기’의 큰 그림 대부분은 윈도우용 1.21.16을 녹화했어요. 기기별 화면과 지원 기능에는 차이가 있어요.</p></div></details>
+      <details><summary>아이폰·아이패드용은 있나요?</summary><div class="ans"><p>아직 내려받을 버전이 없어요. 지금은 맥·윈도우·안드로이드용만 있어요.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark-sec outro">
+  <div class="wrap">
+    <img src="assets/icon.png" alt="" width="96" height="96">
+    <h2 class="h2" style="color:#fff">번역하고, 묻고, 기록하세요.</h2>
+    <p class="lead">읽고 싶은 문서를, 이해하고 싶은 문장부터. Folane에서 이어 가세요.</p>
+    <div class="hero-cta"><a class="pill pill-w" id="outro-dl" href="#download"><span id="outro-dl-label">Folane 받기</span><span class="sz" id="outro-dl-size"></span></a><a class="pill pill-g" href="https://github.com/peanutJES/folane-releases/blob/main/docs/guide.md">사용법 보기</a></div>
+  </div>
+</section>
+<noscript><p class="noscript-note">직접 써 보기와 화면 확대는 JavaScript를 켜면 사용할 수 있어요. 설치 파일과 사용법은 아래 링크에서 확인할 수 있어요.</p></noscript>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div><a class="nav-brand" href="#top" style="color:var(--ink);margin-bottom:10px"><img src="assets/icon.png" alt="" width="22" height="22">Folane</a><p style="margin:0;max-width:24em">folio(책의 낱장)와 lane(한 줄로 난 길)을 합쳐 ‘페이지를 따라가는 길’이라는 뜻이에요.</p></div>
+    <div><h5>받기</h5><ul><li><a data-dl="mac" href="https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-1.21.22-mac.dmg">맥</a></li><li><a data-dl="win" href="https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-Setup-1.21.22.exe">윈도우</a></li><li><a data-dl="android" href="https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-1.21.22-android.apk">안드로이드</a></li><li><a href="https://github.com/peanutJES/folane-releases/releases">모든 버전</a></li></ul></div>
+    <div><h5>알아보기</h5><ul><li><a href="#translate">번역</a></li><li><a href="#features">기능</a></li><li><a href="#look">자세히 보기</a></li><li><a href="#try">써 보기</a></li><li><a href="#ai">AI</a></li></ul></div>
+    <div><h5>문서</h5><ul><li><a href="https://github.com/peanutJES/folane-releases/blob/main/docs/guide.md">화면으로 보는 사용법</a></li><li><a href="https://github.com/peanutJES/folane-releases#readme">설치 안내</a></li><li><a href="#privacy">밖으로 보내는 것</a></li><li><a href="#faq">자주 묻는 질문</a></li></ul></div>
+    <div class="legal"><span>© 2026 정은성.</span><span>현재 버전 <span class="kbd" data-version>1.21.22</span></span></div>
+  </div>
+</footer>
+
+<dialog class="film" id="film" aria-labelledby="film-title">
+  <video id="film-video" controls playsinline preload="none" poster="assets/video/hero.jpg"><source src="assets/video/hero.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="assets/video/hero.vtt" default></video>
+  <div class="bar"><span id="film-title">Folane 소개 · Windows 1.21.16 · AI 답은 시연용 예시</span><button type="button" id="film-close">닫기</button></div>
+</dialog>
+
+
+
+<script src="app.js?v=20261104-schema" defer></script>
+</body>
+</html>

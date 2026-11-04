@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="none" fill="none">
+  <defs>
+    <linearGradient id="glass" x1="196" y1="814" x2="1226" y2="401" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5075AF" stop-opacity=".30"/>
+      <stop offset=".27" stop-color="#A5C5F1" stop-opacity=".22"/>
+      <stop offset=".49" stop-color="#4971B0" stop-opacity=".04"/>
+      <stop offset=".73" stop-color="#6292D4" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#C2DEFF" stop-opacity=".38"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="34" y1="721" x2="1380" y2="458" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#91B0DF" stop-opacity=".05"/>
+      <stop offset=".17" stop-color="#C9E0FF" stop-opacity=".74"/>
+      <stop offset=".45" stop-color="#8CACE1" stop-opacity=".06"/>
+      <stop offset=".66" stop-color="#7EA6E3" stop-opacity=".28"/>
+      <stop offset=".88" stop-color="#DCEEFF" stop-opacity=".74"/>
+      <stop offset="1" stop-color="#A1C3F8" stop-opacity=".10"/>
+    </linearGradient>
+    <linearGradient id="thickness" x1="650" y1="450" x2="736" y2="835" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ECF6FF" stop-opacity=".14"/>
+      <stop offset=".58" stop-color="#94B9F2" stop-opacity=".05"/>
+      <stop offset="1" stop-color="#749BDA" stop-opacity=".18"/>
+    </linearGradient>
+    <filter id="edgeGlow" x="-10%" y="-45%" width="120%" height="190%">
+      <feGaussianBlur stdDeviation="11"/>
+    </filter>
+  </defs>
+  <path d="M-105 621C120 734 253 706 416 671C637 624 727 747 921 701C1140 648 1151 443 1518 350L1518 493C1223 563 1187 729 949 772C741 809 606 707 429 740C227 779 90 824-105 757Z" fill="url(#glass)"/>
+  <path d="M-105 621C120 734 253 706 416 671C637 624 727 747 921 701C1140 648 1151 443 1518 350" stroke="url(#rim)" stroke-width="17" filter="url(#edgeGlow)"/>
+  <path d="M-105 621C120 734 253 706 416 671C637 624 727 747 921 701C1140 648 1151 443 1518 350" stroke="url(#rim)" stroke-width="1.6"/>
+  <path d="M-105 631C120 744 255 716 417 682C637 636 727 758 925 711C1141 659 1160 455 1518 363" stroke="url(#thickness)" stroke-width="2"/>
+  <path d="M-105 757C90 824 227 779 429 740C606 707 741 809 949 772C1187 729 1223 563 1518 493" stroke="url(#rim)" stroke-width="1.2" opacity=".55"/>
+</svg>
