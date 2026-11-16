@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개인정보 처리방침 — Folane</title>
+<meta name="description" content="Folane PDF 리더의 개인정보 처리방침. Folane은 서버를 두지 않고 개인정보를 모으지 않아요.">
+<link rel="stylesheet" href="assets/fonts/pretendard.css">
+<style>
+  :root { --bg: #F5F5F7; --card: #FFFFFF; --ink: #1D1D1F; --muted: #6E6E73; --line: #D2D2D7; --blue: #0071E3; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #000000; --card: #1C1C1E; --ink: #F5F5F7; --muted: #A1A1A6; --line: #38383A; --blue: #2997FF; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.7 "Pretendard", -apple-system, "Segoe UI", "Malgun Gothic", sans-serif; -webkit-font-smoothing: antialiased; }
+  main { max-width: 760px; margin: 0 auto; padding: 56px 20px 80px; }
+  a { color: var(--blue); }
+  .back { font-size: 14px; text-decoration: none; }
+  h1 { font-size: clamp(30px, 6vw, 44px); line-height: 1.15; letter-spacing: -0.02em; margin: 18px 0 8px; }
+  .date { color: var(--muted); font-size: 14px; margin: 0 0 28px; }
+  .lead { font-size: 19px; font-weight: 600; background: var(--card); border-radius: 16px; padding: 20px 22px; margin: 0 0 36px; }
+  h2 { font-size: 21px; letter-spacing: -0.01em; margin: 40px 0 10px; }
+  p, li { color: var(--ink); }
+  ul { padding-left: 1.2em; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 14px; overflow: hidden; font-size: 15px; }
+  th, td { text-align: left; vertical-align: top; padding: 11px 14px; border-bottom: 1px solid var(--line); }
+  th { font-weight: 600; color: var(--muted); font-size: 13px; }
+  tr:last-child td { border-bottom: none; }
+  .scroll { overflow-x: auto; border-radius: 14px; }
+  .en { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--line); color: var(--muted); font-size: 15px; }
+  .en h2 { color: var(--ink); }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="./">← Folane</a>
+  <h1>개인정보 처리방침</h1>
+  <p class="date">시행일 2026년 11월 17일 · 적용 대상: Folane 맥·윈도우(Microsoft Store판 포함)·안드로이드·아이폰·아이패드</p>
+
+  <p class="lead">Folane은 서버를 두지 않아요. 계정을 만들지 않고, 사용 기록·분석·광고 정보를 모으지 않아요. 문서와 설정은 내 기기에만 있어요.</p>
+
+  <h2>1. 내 기기에만 저장하는 것</h2>
+  <ul>
+    <li><b>문서와 표시</b>: 형광펜·메모·AI 대화는 내가 연 PDF 파일 안에 저장해요. 한글·일러스트·포토샵 원본은 바꾸지 않아요.</li>
+    <li><b>설정과 최근 문서 목록</b>: 앱 데이터 폴더에 저장해요.</li>
+    <li><b>AI 키·로그인 정보</b>: 운영체제의 보안 저장소로 암호화해 이 기기에만 둬요(윈도우 DPAPI, 맥 암호화 파일, 안드로이드 Keystore). Folane 개발자에게 보내지 않아요.</li>
+    <li><b>옵시디언 노트</b>: 내가 고른 볼트 폴더에만 써요. 그 폴더가 구글 드라이브·OneDrive 같은 동기화 폴더면, 그 서비스가 동기화해요.</li>
+  </ul>
+
+  <h2>2. 내가 기능을 쓸 때만 바깥으로 보내는 것</h2>
+  <p>아래는 그 기능을 누를 때만 일어나요. Folane은 중간에서 받거나 저장하지 않고, 내 기기가 각 서비스에 바로 보내요. 보낸 내용은 그 서비스의 개인정보 처리방침에 따라 다뤄져요.</p>
+  <div class="scroll"><table>
+    <tr><th>기능</th><th>보내는 곳</th><th>보내는 내용</th></tr>
+    <tr><td>AI에게 묻기·설명·번역·요약</td><td>내가 고른 AI 회사: Google(Gemini), OpenAI(ChatGPT), Anthropic(Claude)</td><td>질문, 고른 글·지금 쪽·문서 글, 첨부한 파일. 내 컴퓨터 AI(LM Studio·Ollama·Folane에 받은 모델)를 고르면 기기 밖으로 나가지 않아요</td></tr>
+    <tr><td>낱말 찾아보기</td><td>위키백과(Wikimedia)</td><td>찾는 낱말</td></tr>
+    <tr><td>관련 논문·참고문헌 찾기</td><td>OpenAlex, Crossref, Open Library</td><td>검색어(핵심 개념·제목·저자)</td></tr>
+    <tr><td>내 컴퓨터 AI 받기</td><td>Hugging Face, GitHub</td><td>받을 모델 파일 요청</td></tr>
+    <tr><td>업데이트 확인(GitHub에서 받은 판)</td><td>GitHub</td><td>새 버전 정보 요청. Microsoft Store판은 Store가 업데이트해요</td></tr>
+    <tr><td>ChatGPT 구독으로 로그인(쓰는 판만)</td><td>OpenAI</td><td>로그인은 OpenAI 화면에서 해요. Folane은 비밀번호를 받지 않아요</td></tr>
+  </table></div>
+  <p>AI 회사들의 처리방침: <a href="https://policies.google.com/privacy">Google</a> · <a href="https://openai.com/policies/privacy-policy/">OpenAI</a> · <a href="https://www.anthropic.com/legal/privacy">Anthropic</a></p>
+
+  <h2>3. 동의와 거두기</h2>
+  <p>Microsoft Store판은 문서 글을 처음 바깥 AI 회사에 보내기 전에 한 번 묻고, 허락한 경우에만 보내요. 도움말 메뉴의 ‘AI로 보내기 허락 거두기’에서 언제든 거둘 수 있어요. 어느 판이든 AI 설정에서 키를 지우거나 로그아웃하면 더는 보내지 않아요.</p>
+
+  <h2>4. 지우기</h2>
+  <p>Microsoft Store판과 안드로이드·아이폰·아이패드는 앱을 지우면 앱 데이터(설정·키)도 함께 지워져요. GitHub에서 받은 윈도우·맥판은 앱을 지워도 앱 데이터 폴더가 남을 수 있어요. 윈도우는 <code>%APPDATA%\Folane</code>, 맥은 <code>~/Library/Application Support/Folane</code> 폴더를 지우면 돼요. 문서와 그 안의 표시는 내 파일이라 내가 지우기 전까지 남아요.</p>
+
+  <h2>5. 아이</h2>
+  <p>Folane은 어린이를 대상으로 만든 앱이 아니고, 누구의 정보도 모으지 않아요.</p>
+
+  <h2>6. AI 답 신고와 문의</h2>
+  <p>부적절하거나 틀린 AI 답, 이 방침에 대한 문의는 <a href="https://github.com/peanutJES/folane-releases/issues">GitHub 이슈</a>로 알려 주세요. 이슈는 누구나 볼 수 있으니 문서 내용이나 개인정보는 적지 마세요.</p>
+
+  <h2>7. 바뀔 때</h2>
+  <p>이 방침을 바꾸면 이 페이지를 고치고 맨 위 시행일을 바꿔요.</p>
+
+  <section class="en" lang="en">
+    <h2>Privacy Policy (English summary)</h2>
+    <p>Folane has no servers and collects no personal data, analytics, or advertising identifiers. Documents, annotations, and settings stay on your device; AI keys are encrypted with the OS secure storage and never sent to the developer. Only when you use a feature does your device send data directly to that service: your question and selected document text to the AI provider you chose (Google, OpenAI, or Anthropic; local AI stays on device), a looked-up word to Wikipedia, search terms to OpenAlex/Crossref/Open Library, and update checks to GitHub (non-Store builds). The Microsoft Store build asks for consent before first sending document text to an AI provider; you can withdraw it from the Help menu. Questions and AI-content reports: <a href="https://github.com/peanutJES/folane-releases/issues">GitHub Issues</a>. Effective November 17, 2026.</p>
+  </section>
+</main>
+</body>
+</html>
