@@ -104,17 +104,20 @@ function createScene(ballColor, onReady) {
   const getDynamicColors = (baseColor) => {
     const hex = baseColor.toLowerCase();
     if (hex === '#e1fc03') {
-      return { pastel: new THREE.Color('#FBFFE2'), light: new THREE.Color('#EFFE69'),
-        medium: new THREE.Color('#E1FC03'), deep: new THREE.Color('#B1E200'), glass: new THREE.Color('#DCFF32') };
+      // 애플식(2026-11-19): 연두 공 → 은색 공
+      return { pastel: new THREE.Color('#FFFFFF'), light: new THREE.Color('#F2F2F5'),
+        medium: new THREE.Color('#D2D2D7'), deep: new THREE.Color('#A1A1A6'), glass: new THREE.Color('#E8E8ED') };
     } else if (hex === '#ffc5c2' || hex === '#ffa19e') {
-      return { pastel: new THREE.Color('#FFF5F4'), light: new THREE.Color('#FFECEB'),
-        medium: new THREE.Color('#FFA6B3'), deep: new THREE.Color('#FF4D6D'), glass: new THREE.Color('#FFA6B3') };
+      // 애플식(2026-11-19): 분홍 공 → 진주색 공
+      return { pastel: new THREE.Color('#FFFFFF'), light: new THREE.Color('#F5F5F7'),
+        medium: new THREE.Color('#E5E5EA'), deep: new THREE.Color('#C7C7CC'), glass: new THREE.Color('#EEF3FA') };
     } else if (hex === '#96e5ff') {
       return { pastel: new THREE.Color('#F0F9FF'), light: new THREE.Color('#C9F1FF'),
         medium: new THREE.Color('#96E5FF'), deep: new THREE.Color('#2BA5FF'), glass: new THREE.Color('#98E4FF') };
     } else if (hex === '#2f69ff') {
-      return { pastel: new THREE.Color('#ECEFFF'), light: new THREE.Color('#A8C1FF'),
-        medium: new THREE.Color('#2F69FF'), deep: new THREE.Color('#0A33BF'), glass: new THREE.Color('#4D80FF') };
+      // 애플식(2026-11-19): 파랑은 #0071E3 하나
+      return { pastel: new THREE.Color('#F2F7FF'), light: new THREE.Color('#BFD8FF'),
+        medium: new THREE.Color('#0071E3'), deep: new THREE.Color('#0058B0'), glass: new THREE.Color('#5AA2F0') };
     } else if (hex === '#141414' || hex === '#000000') {
       return { pastel: new THREE.Color('#D8D8D8'), light: new THREE.Color('#555555'),
         medium: new THREE.Color('#242424'), deep: new THREE.Color('#0A0A0A'), glass: new THREE.Color('#1F1F1F') };

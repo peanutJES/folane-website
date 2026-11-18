@@ -1,0 +1,97 @@
+/* 애플식 밝은 테마(2026-11-19, 사용자 “애플스럽게”). 다른 CSS 뒤에 불러와 덮어요.
+   바탕 #F5F5F7·흰색, 글자 #1D1D1F·#6E6E73, 강조는 파랑 #0071E3 하나, 장면 뒤에는 아주 옅은 파랑·보라 빛. */
+:root{
+  --apple-bg:#F5F5F7; --apple-card:#FFFFFF; --apple-ink:#1D1D1F; --apple-2:#6E6E73; --apple-3:#86868B; --apple-line:#D2D2D7; --apple-blue:#0071E3;
+  --apple-glow:radial-gradient(60% 50% at 18% 12%,rgba(150,190,255,.28),transparent 70%),radial-gradient(55% 45% at 85% 30%,rgba(195,170,255,.22),transparent 70%),radial-gradient(70% 50% at 50% 100%,rgba(160,215,255,.18),transparent 70%);
+  --font-raleway:-apple-system,BlinkMacSystemFont,"SF Pro Display","Apple SD Gothic Neo","Pretendard Variable",Pretendard,"Segoe UI","Malgun Gothic",sans-serif;
+  --font-mono:var(--font-raleway);
+  --f:var(--font-raleway); --fd:var(--font-raleway);
+  --g-accent:#0071E3; --g-ink:#1D1D1F; --g-700:#424245; --g-500:#6E6E73; --g-400:#86868B;
+  --g-orb:linear-gradient(180deg,#2997FF 0%,#0071E3 100%);
+  --g-glass-hi:inset 0 1px 0 rgba(255,255,255,.9),0 8px 30px rgba(0,0,0,.05);
+  --blue:#0071E3; --ribbon:#0071E3;
+  /* 예전 ‘유리 밤’ 변수 → 밝게 */
+  --glass-night:#F5F5F7; --glass-edge:rgba(0,0,0,.06); --glass-shadow:0 18px 42px -28px rgba(0,0,0,.18);
+  --glass-dark:#FFFFFF; --glass-clear:rgba(255,255,255,.72); --glass-pearl:#FFFFFF;
+}
+html,body{background:var(--apple-bg);color:var(--apple-ink)}
+::-webkit-scrollbar-thumb{background:rgba(0,0,0,.18)}
+::-webkit-scrollbar-thumb:hover{background:rgba(0,0,0,.3)}
+
+/* 첫 네 장면(공) 바탕과 로더 */
+.g-bg .s0,.g-bg .s1,.g-bg .s2{background:var(--apple-glow),#F5F5F7}
+.g-loader{background:var(--apple-glow),#F5F5F7 !important}
+.g-l-bar{background:rgba(0,0,0,.08)}
+.g-l-bar i{background:#0071E3;box-shadow:none}
+.g-l-status{color:var(--apple-2)} .g-l-count{color:var(--apple-ink)}
+.g-label{color:var(--apple-blue);letter-spacing:.02em;text-transform:none;font-size:13px;font-weight:600}
+.g-eyebrow{color:var(--apple-blue);letter-spacing:.02em;text-transform:none;font-size:14px;font-weight:600}
+.g-hero-h,.g-h2{font-weight:700;letter-spacing:-0.035em;color:var(--apple-ink)}
+.g-p{color:var(--apple-2)}
+.g-credit,.g-cue{letter-spacing:.04em;text-transform:none;color:var(--apple-3)}
+.g-card{background:transparent;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.g-card-in{background:rgba(255,255,255,.78);border:1px solid rgba(0,0,0,.05)}
+.g-card-in::before{display:none}
+.g-card header span:nth-child(2){color:var(--apple-3);letter-spacing:.04em}
+.g-card header i{background:#0071E3;box-shadow:none}
+
+/* 머리말: 늘 밝은 유리 */
+#nav{color:var(--apple-ink)}
+#nav.g-solid,#nav.g-solid.dark,.nav.dark,.nav.light{background:rgba(245,245,247,.78) !important;color:var(--apple-ink);box-shadow:inset 0 -1px 0 rgba(0,0,0,.08) !important}
+.g-icon-btn{border-color:rgba(0,0,0,.08);background:rgba(255,255,255,.7)}
+#nav .g-pill{background:rgba(255,255,255,.8);border-color:rgba(0,0,0,.08)}
+
+/* 남색이던 구역 → 흰 바탕·#F5F5F7 번갈아 */
+.dark-sec{background:#FFFFFF;color:var(--apple-ink);--on:#1D1D1F;--on-2:#6E6E73;--on-3:#86868B}
+.dark-sec .eyebrow{color:var(--apple-blue)}
+.translation-section,.ai-section,.feature-section,.research-section,.outro,.anywhere{background-color:#FFFFFF !important;background-image:none !important}
+.ai-section,.research-section{background-color:#F5F5F7 !important}
+:is(.translation-section,.ai-section){--showcase:#FFFFFF;--surface:#F5F5F7;--stroke:#D2D2D7;--muted:#6E6E73;--ink:#1D1D1F;--line:#D2D2D7;color:var(--apple-ink)}
+.ai-section{--showcase:#F5F5F7;--surface:#FFFFFF}
+:is(.translation-section,.ai-section) .eyebrow{color:var(--apple-blue)}
+:is(.translation-section,.ai-section) .eyebrow::before{background:var(--apple-blue)}
+
+/* 첫 소개(맥북) 무대 */
+.hero-stage{background:#F5F5F7 !important}
+.hero-stage::before{background:var(--apple-glow),#FFFFFF !important;border-color:rgba(0,0,0,.06) !important;box-shadow:0 30px 80px -40px rgba(0,0,0,.18) !important}
+.hero-copy .lead,.hero-note{color:var(--apple-2) !important}
+#hero,#hero .h1,#hero h1{color:var(--apple-ink)}
+
+/* 단추: 파랑 하나 */
+.pill-b,.nav.light .nav-buy,#download .pill-b{background:#0071E3 !important;color:#fff !important}
+.research-cta{background:#0071E3 !important;color:#fff !important;border-color:transparent !important}
+
+/* 바닥글: 검정 둥근 판 → 밝은 회색 */
+.g-foot{background:#F5F5F7;color:var(--apple-ink);border-top:1px solid rgba(0,0,0,.06)}
+.g-foot a{color:var(--apple-2)}
+
+/* 기능 영상 칸 */
+.feature-tabs{background:#E8E8ED !important;border:0 !important;box-shadow:none !important}
+.feature-tabs button{color:#424245 !important;background:transparent !important}
+.feature-tabs button[aria-selected=true]{background:#FFFFFF !important;color:#1D1D1F !important;box-shadow:0 1px 3px rgba(0,0,0,.12) !important}
+@media (hover:hover) and (pointer:fine){.feature-tabs button:not([aria-selected=true]):hover{color:#1D1D1F !important;background:rgba(255,255,255,.6) !important}}
+.feature-stage{background:#F5F5F7 !important;border-color:rgba(0,0,0,.06) !important}
+.tile-media{background:#FFFFFF !important;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+.tile-media video{background:#FFFFFF}
+.tile-text h3{color:#1D1D1F} .tile-text p{color:#6E6E73}
+
+/* 바닥글 글자 */
+.g-bloom.a{background:radial-gradient(circle,rgba(150,190,255,.35) 0%,transparent 65%)}
+.g-bloom.b{background:radial-gradient(circle,rgba(195,170,255,.28) 0%,transparent 65%)}
+.g-marquee{border-bottom-color:rgba(0,0,0,.08)}
+.g-marquee span{color:#1D1D1F;font-weight:700;letter-spacing:-.03em}
+.g-marquee i,.g-dot{background:#0071E3}
+.g-foot-label,.g-col h3,.g-copy,.g-sz{color:#86868B;letter-spacing:.04em;text-transform:none}
+.g-cta-h{color:#1D1D1F;font-weight:700;letter-spacing:-.035em}
+.g-mailpill{background:#0071E3;border-color:transparent;color:#fff}
+@media (hover:hover) and (pointer:fine){.g-mailpill:hover{background:#0077ED}}
+.g-mailpill .g-sz{color:rgba(255,255,255,.75)}
+.g-mailpill .g-orb{background:#fff;color:#0071E3}
+.g-col a{color:#424245}
+@media (hover:hover) and (pointer:fine){.g-col a:hover{color:#0071E3}}
+.g-bottom{border-top-color:rgba(0,0,0,.08)}
+.g-wordmark-foot{color:#1D1D1F}
+.g-social a{border-color:rgba(0,0,0,.1);color:#6E6E73}
+@media (hover:hover) and (pointer:fine){.g-social a:hover{color:#1D1D1F}}
+.g-mailpill,.g-mailpill *{color:#fff !important}
+.g-mailpill .g-orb{color:#0071E3 !important}
