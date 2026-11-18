@@ -94,4 +94,4 @@ html,body{background:var(--apple-bg);color:var(--apple-ink)}
 .g-social a{border-color:rgba(0,0,0,.1);color:#6E6E73}
 @media (hover:hover) and (pointer:fine){.g-social a:hover{color:#1D1D1F}}
 .g-mailpill,.g-mailpill *{color:#fff !important}
-.g-mailpill .g-orb{color:#0071E3 !important}
+.g-mailpill .g-orb,.g-mailpill .g-orb *{color:#0071E3 !important}
