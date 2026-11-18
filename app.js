@@ -337,7 +337,7 @@ const MACSEQ = /*MACSEQ*/{"frames": 84, "w": 1440, "h": 900, "top0": 0.47556, "b
     if (typeof film.showModal !== 'function') { location.href = url; return; }
     fv.pause(); fv.src = url; fv.poster = source ? source.poster : 'assets/video/intro.jpg';
     const track = $('track', fv); if (track) track.track.mode = 'disabled';
-    $('#film-title').textContent = source ? source.getAttribute('aria-label') + ' · Windows 1.21.16 · AI 답은 시연용 예시' : 'Folane 소개 · 1.32 · AI 답·받아쓰기·번역문은 녹화용 예시';
+    $('#film-title').textContent = source ? source.getAttribute('aria-label') + ' · 1.32 · AI 답은 시연용 예시' : 'Folane 소개 · 1.32 · AI 답·받아쓰기·번역문은 녹화용 예시';
     film.showModal(); document.body.classList.add('film-open'); fv.load(); fv.play().catch(() => {});
   }
   $$('[data-film]').forEach(b => b.addEventListener('click', () => openFilm(b)));

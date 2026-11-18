@@ -4,7 +4,7 @@
 - `assets/mac/f001.webp`–`f084.webp`: 클로드가 제작한 무채색 Blender 맥북 모델을 바탕으로 Codex가 재질·조명·법선·키보드·트랙패드·전면 홈을 수정해 다시 렌더했습니다. Claude Opus의 읽기 전용 검토를 반영했고, 원래 카메라 구도와 84프레임의 여는 동작은 유지했습니다.
 - `assets/mac/open.webp`, `screen.webp`, `poster.jpg`: 같은 렌더와 macOS Folane 1.21.17 실제 창을 사용한 이미지.
 - `assets/video/intro.mp4`: 2026-11-19 소개 모션그래픽(62.9초, 1920×1080, 무음). Folane 1.32를 윈도우(Electron 녹화)·맥(시험용 번들 사본)·안드로이드(기기 없이 화면 보기 도구)에서 새로 찍어 엮었습니다. 자막은 영상 안에 있습니다. 원본·만드는 법: AI-Share `projects/folane-promo-video-2026-11-19/`.
-- `assets/video/` 나머지 기능별 `*.mp4`: Windows Folane 1.21.16을 격리된 시연 환경에서 실제 조작한 녹화.
+- `assets/video/` 기능별 `*.mp4`(marks·lookup·ai·memo·pen·note): 2026-11-19 Windows Folane 1.32.2를 격리된 시연 환경에서 실제 조작한 녹화. note는 윈도우 새 노트 창 + 안드로이드판 태블릿 화면(1280×800, 2배속)에서 펜으로 그린 장면을 이었어요. AI 답은 녹화용 시험 서버의 예시예요.
 - 기능 영상: 위키백과 찾기, AI 설명, 하이라이트·밑줄·취소선, 메모, 펜과 직선, 새 노트.
 - AI 답변은 녹화용 시험 서버가 반환한 예시입니다. 실제 클라우드 AI 성능·응답의 증거가 아닙니다. 영상 근처와 확대 창, 스크린샷 설명에 이 사실을 유지했습니다.
 - `assets/shots/`, `assets/screens/`: Folane macOS·Windows·Android 실제 화면. 기기별 화면·지원 기능에는 차이가 있습니다.
