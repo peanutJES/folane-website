@@ -3,19 +3,39 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Folane — 무료 PDF 리더, 문서 번역과 AI</title>
-<meta name="description" content="Folane은 macOS, Windows, Android에서 쓰는 무료 PDF 리더입니다. 밑줄과 메모를 PDF에 저장하고, AI에 문맥을 묻거나 관련 논문을 찾을 수 있습니다. Mac과 Windows에서는 원문 배치를 살린 문서 번역을 지원합니다.">
+<title>Folane — 논문 읽기 좋은 무료 PDF 리더 | 하이라이트·메모·번역·AI</title>
+<meta name="description" content="Folane은 맥·윈도우·안드로이드에서 쓰는 무료 PDF 리더예요. 논문과 리딩 과제 PDF에 하이라이트·밑줄·메모를 남기면 PDF 안에 저장되고, 한글(hwp·hwpx) 문서도 열려요. 영어 원서 PDF는 원문 배치 그대로 번역하고, 직접 고른 AI에게 문맥을 물어요.">
+<meta name="keywords" content="Folane, 폴레인, PDF 리더, 무료 PDF 뷰어, 논문 읽기, 논문 PDF 메모, PDF 하이라이트, PDF 필기, 리딩 과제, 원서 번역, PDF 번역, 한글 hwp 뷰어, hwpx 열기, 대학생 앱, 대학원생 앱, PDF reader, free PDF reader, PDF annotation, research paper reader, PDF translation">
+<meta name="author" content="정은성">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#000000">
-<meta property="og:title" content="Folane — 무료 PDF 리더, 문서 번역과 AI">
-<meta property="og:description" content="Folane은 macOS, Windows, Android에서 쓰는 무료 PDF 리더입니다. 밑줄과 메모를 PDF에 저장하고, AI에 문맥을 묻거나 관련 논문을 찾을 수 있습니다. Mac과 Windows에서는 원문 배치를 살린 문서 번역을 지원합니다.">
+<meta name="application-name" content="Folane">
+<!-- 검색 엔진 소유 확인: 구글 서치 콘솔·네이버 서치어드바이저에서 받은 값을 content에 넣고 주석을 풀어요.
+<meta name="google-site-verification" content="">
+<meta name="naver-site-verification" content="">
+-->
 <link rel="canonical" href="https://peanutjes.github.io/folane-website/">
+<link rel="alternate" type="text/markdown" href="https://peanutjes.github.io/folane-website/llms.txt" title="Folane 요약(AI용)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Folane">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="Folane — 논문 읽기 좋은 무료 PDF 리더 | 하이라이트·메모·번역·AI">
+<meta property="og:description" content="Folane은 맥·윈도우·안드로이드에서 쓰는 무료 PDF 리더예요. 논문과 리딩 과제 PDF에 하이라이트·밑줄·메모를 남기면 PDF 안에 저장되고, 한글(hwp·hwpx) 문서도 열려요. 영어 원서 PDF는 원문 배치 그대로 번역하고, 직접 고른 AI에게 문맥을 물어요.">
 <meta property="og:url" content="https://peanutjes.github.io/folane-website/">
 <meta property="og:image" content="https://peanutjes.github.io/folane-website/assets/mac/poster.jpg">
+<meta property="og:image:width" content="1440">
+<meta property="og:image:height" content="900">
+<meta property="og:image:alt" content="맥북에서 Folane으로 PDF를 읽는 화면">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Folane — 논문 읽기 좋은 무료 PDF 리더 | 하이라이트·메모·번역·AI">
+<meta name="twitter:description" content="Folane은 맥·윈도우·안드로이드에서 쓰는 무료 PDF 리더예요. 논문과 리딩 과제 PDF에 하이라이트·밑줄·메모를 남기면 PDF 안에 저장되고, 한글(hwp·hwpx) 문서도 열려요. 영어 원서 PDF는 원문 배치 그대로 번역하고, 직접 고른 AI에게 문맥을 물어요.">
+<meta name="twitter:image" content="https://peanutjes.github.io/folane-website/assets/mac/poster.jpg">
+<meta name="twitter:image:alt" content="맥북에서 Folane으로 PDF를 읽는 화면">
 <link rel="icon" href="assets/icon.png">
 <link rel="apple-touch-icon" href="assets/icon.png">
 <link rel="stylesheet" href="assets/fonts/pretendard.css">
 <link rel="preload" as="image" href="assets/mac/f001.webp?v=7">
-<link rel="stylesheet" href="styles.css?v=20261104-pretendard">
+<link rel="stylesheet" href="styles.css?v=20261119-seo">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700;900&display=swap">
@@ -24,29 +44,178 @@
 <script>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("g-pre")}catch(e){}</script>
 <script type="application/ld+json" id="folane-app-schema">
 {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Folane",
-  "url": "https://peanutjes.github.io/folane-website/",
-  "description": "Folane은 macOS, Windows, Android에서 쓰는 무료 PDF 리더입니다. 밑줄과 메모를 PDF에 저장하고, AI에 문맥을 묻거나 관련 논문을 찾을 수 있습니다. Mac과 Windows에서는 원문 배치를 살린 문서 번역을 지원합니다.",
-  "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": [
-    "macOS 11 or later (Apple silicon and Intel)",
-    "Windows 10 or 11 (64-bit)",
-    "Android 8 or later"
-  ],
-  "softwareVersion": "1.21.22",
-  "downloadUrl": [
-    "https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-1.21.22-mac.dmg",
-    "https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-Setup-1.21.22.exe",
-    "https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-1.21.22-android.apk"
-  ],
-  "offers": {
-    "@type": "Offer",
-    "price": 0,
-    "url": "https://github.com/peanutJES/folane-releases/releases"
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Folane",
+ "alternateName": [
+  "폴레인",
+  "Folane PDF Reader"
+ ],
+ "url": "https://peanutjes.github.io/folane-website/",
+ "description": "Folane은 맥·윈도우·안드로이드에서 쓰는 무료 PDF 리더예요. 논문과 리딩 과제 PDF에 하이라이트·밑줄·메모를 남기면 PDF 안에 저장되고, 한글(hwp·hwpx) 문서도 열려요. 영어 원서 PDF는 원문 배치 그대로 번역하고, 직접 고른 AI에게 문맥을 물어요.",
+ "applicationCategory": "EducationalApplication",
+ "applicationSubCategory": "PDF 리더",
+ "operatingSystem": "macOS 11 or later, Windows 10/11 (64-bit), Android 8 or later",
+ "softwareVersion": "1.32.2",
+ "releaseNotes": "https://github.com/peanutJES/folane-releases/releases/latest",
+ "downloadUrl": [
+  "https://github.com/peanutJES/folane-releases/releases/download/v1.32.2/Folane-1.32.2-mac.dmg",
+  "https://github.com/peanutJES/folane-releases/releases/download/v1.32.2/Folane-Setup-1.32.2.exe",
+  "https://github.com/peanutJES/folane-releases/releases/download/v1.32.2/Folane-1.32.2-android.apk",
+  "https://apps.microsoft.com/detail/9PJK6FT8Q7TT"
+ ],
+ "installUrl": "https://apps.microsoft.com/detail/9PJK6FT8Q7TT",
+ "image": "https://peanutjes.github.io/folane-website/assets/icon.png",
+ "screenshot": "https://peanutjes.github.io/folane-website/assets/mac/poster.jpg",
+ "featureList": [
+  "PDF 하이라이트·밑줄·취소선·손글씨",
+  "옆 메모 칸과 메모 카드(PDF 안에 저장)",
+  "고른 말을 백과사전과 AI로 찾아보기",
+  "원문 배치를 살린 PDF 문서 번역(맥·윈도우)",
+  "고른 부분·쪽·문서 전체를 두고 AI에게 질문",
+  "관련 논문 찾기와 참고문헌 추천(실존 확인)",
+  "한글 문서(.hwp·.hwpx) 열기",
+  "스캔본 글자 인식",
+  "소리로 읽기와 음성 메모",
+  "내 라이브러리(폴더 기반)",
+  "Gemini·ChatGPT·Claude·Grok API 키, Apple Intelligence, 내 컴퓨터 모델 연결"
+ ],
+ "keywords": "PDF 리더, 논문 읽기, 논문 PDF 메모, PDF 하이라이트, 리딩 과제, 원서 번역, PDF 번역, hwp 뷰어, 대학생, 대학원생, PDF reader, PDF annotation, research papers",
+ "audience": {
+  "@type": "EducationalAudience",
+  "educationalRole": "student",
+  "audienceType": "대학생·대학원생"
+ },
+ "isAccessibleForFree": true,
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "KRW",
+  "url": "https://github.com/peanutJES/folane-releases/releases"
+ },
+ "author": {
+  "@type": "Person",
+  "name": "정은성",
+  "url": "https://github.com/peanutJES"
+ },
+ "sameAs": [
+  "https://github.com/peanutJES/folane-releases",
+  "https://apps.microsoft.com/detail/9PJK6FT8Q7TT"
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Folane",
+ "alternateName": "폴레인",
+ "url": "https://peanutjes.github.io/folane-website/",
+ "inLanguage": "ko"
+}
+</script>
+<script type="application/ld+json" id="folane-faq-schema">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "대학생·대학원생은 어떻게 쓰나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "논문이나 리딩 과제 PDF를 열어 중요한 문장에 하이라이트를 칠하고, 떠오른 생각은 옆 메모 칸에 적어요. 모르는 개념은 글을 고르기만 하면 백과사전과 AI가 이 문서에서 쓰인 뜻을 보여 줘요. 읽던 쪽을 바탕으로 관련 논문을 찾고, AI가 추천한 참고문헌은 실제로 있는지 확인한 것만 보여 줘요. 표시와 메모는 PDF 파일 안에 저장돼서 노트북에서 칠한 논문을 휴대폰에서 열어도 그대로예요."
+   }
   },
-  "sameAs": "https://github.com/peanutJES/folane-releases"
+  {
+   "@type": "Question",
+   "name": "한글(hwp·hwpx) 파일도 열 수 있나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "네. 한컴 한글이 없는 컴퓨터나 휴대폰에서도 .hwpx와 .hwp(한글 5.0 이후) 문서를 열고, 밑줄과 메모를 남겨요. 표·그림·각주·쪽 번호도 나와요. 암호를 건 문서, 배포용 문서, 한글 97 이전 형식은 열지 못해요."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "영어 논문이나 원서 PDF를 한국어로 번역할 수 있나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "맥·윈도우의 ‘문서 번역’은 원문 글자를 걷어 내고 그 자리에 번역 글을 넣은 새 PDF를 만들어요. 번역은 연결한 AI가 하고, ‘번역 규칙·용어집’에 적어 둔 말투와 용어를 따라요. 한 문장만 궁금하면 그 문장을 골라 바로 번역해요."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Microsoft Store에서도 받을 수 있나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "네. 윈도우용은 Microsoft Store에서 ‘Folane’을 찾아 설치할 수 있어요. 스토어로 설치하면 업데이트도 스토어가 맡아요. 스토어 버전은 인증을 거치느라 이 페이지의 설치 파일보다 며칠 늦게 올라올 수 있어요."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "번역하면 문서의 디자인도 유지되나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "원문이 있던 자리에 번역문을 넣고, 그림·표·배경과 단 구성을 살린 새 PDF를 만들어요. 원본은 바꾸지 않아요. 글자 크기·색·굵기도 원문에 맞추되, 번역문이 길면 줄 간격이나 글자 크기를 조정해요. 복잡한 PDF나 스캔본에서는 배치가 달라질 수 있어 결과 확인이 필요해요. 원본의 밑줄과 메모는 번역본에 자동으로 옮기지 않아요."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "어떤 언어로 번역할 수 있나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "맥·윈도우 문서 번역에서 한국어, 영어, 일본어, 중국어 간체·번체, 스페인어, 프랑스어, 독일어, 베트남어, 러시아어를 선택할 수 있어요. 원문 언어는 자동으로 판단해요. 인식 가능한 원문 언어와 번역 품질은 연결한 AI에 따라 달라요."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "정말 돈을 안 내도 되나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "네. 앱은 무료예요. ChatGPT나 Claude처럼 쓴 만큼 요금이 나오는 AI 키를 넣으면, 그 요금은 키를 발급한 OpenAI·Anthropic에 내요. Apple Intelligence와 내 컴퓨터 모델은 별도 API 요금 없이 사용해요. 클라우드 AI의 요금과 무료 한도는 제공사에 따라 달라요."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "ChatGPT Plus나 Claude Pro 구독으로 쓸 수 있나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "채팅 구독으로는 API를 쓸 수 없어서 API 키를 따로 받아야 해요. 요금과 제공 혜택은 각 AI 서비스의 최신 안내를 확인해 주세요."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "다른 PDF 앱에서도 제 표시가 보이나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "하이라이트·밑줄·필기 같은 표준 PDF 주석은 미리보기·Adobe Acrobat에서도 보여요. AI 대화 등 Folane 전용 내용은 Folane에서 확인해 주세요."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "스캔한 PDF도 밑줄을 그을 수 있나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "‘글자 인식하기’를 누르면 기기 안에서 글자를 읽어 찾기와 밑줄, 찾아보기가 돼요."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "사이트의 화면은 어느 기기에서 찍었나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "첫 화면의 맥북은 3D 모델이며, 그 화면에는 맥용 Folane 1.21.17을 실제로 찍어 넣었어요. 윈도우용에서 칠하고 메모한 PDF를 그대로 열었어요. 기능 영상과 ‘자세히 보기’의 큰 그림 대부분은 윈도우용 1.21.16을 녹화했어요. 기기별 화면과 지원 기능에는 차이가 있어요."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "아이폰·아이패드용은 있나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "아직 내려받을 버전이 없어요. 지금은 맥·윈도우·안드로이드용만 있어요."
+   }
+  }
+ ]
 }
 </script>
 </head>
@@ -93,10 +262,10 @@
   <div class="g-hero-row">
     <div class="g-hero-left">
       <p class="g-eyebrow g-in" style="--y:14px;--d:.15s">[ 무료 PDF 리더 ]</p>
-      <h1 class="g-hero-h g-in" id="g-hero-title" style="--y:22px;--d:.28s;--t:1s">덜 흩어지고, 더 깊이.</h1>
+      <h1 class="g-hero-h g-in" id="g-hero-title" style="--y:22px;--d:.28s;--t:1s"><span class="sr-only">Folane, 논문 읽기 좋은 무료 PDF 리더. </span>덜 흩어지고, 더 깊이.</h1>
     </div>
     <div class="g-hero-right g-in" style="--d:.45s">
-      <p class="g-hero-p">읽던 자리를 떠나지 않고 밑줄과 메모, 번역과 질문을 한 화면에서 해요.</p>
+      <p class="g-hero-p">논문이나 리딩 과제 PDF를 읽던 자리에서 밑줄과 메모, 번역과 질문까지 한 화면에서 해요.</p>
       <p class="g-credit">© 2026 — 맥 · 윈도우 · 안드로이드 · 무료</p>
       <p class="g-cue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg><span>스크롤</span></p>
     </div>
@@ -408,7 +577,7 @@
     <div class="sec-head rv"><h2 class="h2">자세히 보기.</h2><p class="lead">눌러서 키우고, 끌어서 살펴보세요.</p></div>
     <div class="seg" role="tablist" aria-label="화면 고르기" id="look-tabs"></div>
     <p id="lens-help" class="sr-only">Enter로 확대, 확대한 뒤 방향키로 이동, Escape로 전체 보기.</p>
-    <div class="lens rv" id="lens" role="tabpanel" tabindex="0" aria-describedby="lens-help" aria-label="앱 화면"><div class="lens-in" id="lens-in"><img id="lens-img" alt="" draggable="false" src="assets/shots/mac.jpg"></div><button class="lens-reset" id="lens-reset" type="button" hidden>전체 보기 <span aria-hidden="true">↙</span></button></div>
+    <div class="lens rv" id="lens" role="tabpanel" tabindex="0" aria-describedby="lens-help" aria-label="앱 화면"><div class="lens-in" id="lens-in"><img id="lens-img" alt="Folane 앱 화면" draggable="false" src="assets/shots/mac.jpg"></div><button class="lens-reset" id="lens-reset" type="button" hidden>전체 보기 <span aria-hidden="true">↙</span></button></div>
     <div class="lens-cap" aria-live="polite"><div><h3 id="cap-h">맥</h3><p id="cap-p">+를 눌러 보세요.</p></div><button type="button" id="cap-back" hidden>전체 보기</button></div>
     <p class="lens-note" id="lens-note"></p>
   </div>
@@ -460,19 +629,19 @@
 
 <section class="sec" id="download">
   <div class="wrap">
-    <div class="sec-head rv"><h2 class="h2">Folane 받기.</h2><p class="lead">한 번 설치하면 다음 버전부터는 앱이 알아서 받아요.</p><p class="release-info"><span data-version>1.21.22</span> <span aria-hidden="true">·</span> <span data-date>2026년 11월 4일</span> 업데이트</p></div>
+    <div class="sec-head rv"><h2 class="h2">Folane 받기.</h2><p class="lead">한 번 설치하면 다음 버전부터는 앱이 알아서 받아요.</p><p class="release-info"><span data-version>1.32.2</span> <span aria-hidden="true">·</span> <span data-date>2026년 11월 18일</span> 업데이트</p></div>
     <div class="dl-grid">
-      <article class="dl rv" data-os="mac"><span class="mine-tag">지금 쓰는 기기</span><h3>맥</h3><p class="req">macOS 11(빅서) 이상. 애플 실리콘과 인텔 모두.</p><p class="file" data-file="mac">Folane-1.21.22-mac.dmg</p><a class="pill pill-b" data-dl="mac" href="https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-1.21.22-mac.dmg">DMG 받기 <span class="sz" data-size="mac">26.7MB</span></a></article>
-      <article class="dl rv" data-os="win"><span class="mine-tag">지금 쓰는 기기</span><h3>윈도우</h3><p class="req">윈도우 10·11, 64비트. 설치 버전.</p><p class="file" data-file="win">Folane-Setup-1.21.22.exe</p><a class="pill pill-b" data-dl="win" href="https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-Setup-1.21.22.exe">설치 파일 받기 <span class="sz" data-size="win">146MB</span></a></article>
-      <article class="dl rv" data-os="android"><span class="mine-tag">지금 쓰는 기기</span><h3>안드로이드</h3><p class="req">안드로이드 8 이상. 휴대폰과 태블릿.</p><p class="file" data-file="android">Folane-1.21.22-android.apk</p><a class="pill pill-b" data-dl="android" href="https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-1.21.22-android.apk">APK 받기 <span class="sz" data-size="android">33.9MB</span></a></article>
+      <article class="dl rv" data-os="mac"><span class="mine-tag">지금 쓰는 기기</span><h3>맥</h3><p class="req">macOS 11(빅서) 이상. 애플 실리콘과 인텔 모두.</p><p class="file" data-file="mac">Folane-1.32.2-mac.dmg</p><a class="pill pill-b" data-dl="mac" href="https://github.com/peanutJES/folane-releases/releases/download/v1.32.2/Folane-1.32.2-mac.dmg">DMG 받기 <span class="sz" data-size="mac">29.5MB</span></a></article>
+      <article class="dl rv" data-os="win"><span class="mine-tag">지금 쓰는 기기</span><h3>윈도우</h3><p class="req">윈도우 10·11, 64비트. 설치 버전.</p><p class="file" data-file="win">Folane-Setup-1.32.2.exe</p><a class="pill pill-b" data-dl="win" href="https://github.com/peanutJES/folane-releases/releases/download/v1.32.2/Folane-Setup-1.32.2.exe">설치 파일 받기 <span class="sz" data-size="win">147MB</span></a><a class="link dl-store" href="https://apps.microsoft.com/detail/9PJK6FT8Q7TT">Microsoft Store에서 받기 →</a></article>
+      <article class="dl rv" data-os="android"><span class="mine-tag">지금 쓰는 기기</span><h3>안드로이드</h3><p class="req">안드로이드 8 이상. 휴대폰과 태블릿.</p><p class="file" data-file="android">Folane-1.32.2-android.apk</p><a class="pill pill-b" data-dl="android" href="https://github.com/peanutJES/folane-releases/releases/download/v1.32.2/Folane-1.32.2-android.apk">APK 받기 <span class="sz" data-size="android">34.1MB</span></a></article>
     </div>
     <div class="dl-foot"><span>내 기기에 맞는 설치 파일 하나만 받으면 돼요.</span><a class="link" href="https://github.com/peanutJES/folane-releases/releases">모든 버전과 바뀐 내용 →</a></div>
     <details class="warn">
       <summary>설치할 때 경고가 뜨는 이유</summary>
       <div class="warn-body">
-        <p>Folane은 앱 스토어를 거치지 않았고, 해마다 돈을 내는 개발자 인증을 받지 않았어요. 그래서 운영체제가 “누가 만들었는지 확인할 수 없다”는 경고를 띄워요. 공식 배포 저장소에서 받은 파일인지 확인한 뒤 설치해 주세요.</p>
+        <p>이 페이지의 설치 파일은 앱 스토어를 거치지 않았고, 해마다 돈을 내는 개발자 인증을 받지 않았어요. 그래서 운영체제가 “누가 만들었는지 확인할 수 없다”는 경고를 띄워요. 공식 배포 저장소에서 받은 파일인지 확인한 뒤 설치해 주세요.</p>
         <div class="wrow"><b>맥</b><span>“Apple에서 확인할 수 없습니다” — 공증을 받지 않은 앱이라서</span><em>시스템 설정 → 개인정보 보호 및 보안에서 ‘그래도 열기’</em></div>
-        <div class="wrow"><b>윈도우</b><span>“Windows의 PC 보호” — 코드 서명 인증서가 없어서</span><em>추가 정보 → 실행</em></div>
+        <div class="wrow"><b>윈도우</b><span>“Windows의 PC 보호” — 코드 서명 인증서가 없어서</span><em>추가 정보 → 실행. Microsoft Store에서 설치하면 이 경고가 뜨지 않아요</em></div>
         <div class="wrow"><b>안드로이드</b><span>‘출처를 알 수 없는 앱’ 경고 — 플레이 스토어 밖에서 받아서</span><em>공식 APK를 확인한 뒤 설치 출처 허용</em></div>
       </div>
     </details>
@@ -483,6 +652,10 @@
   <div class="wrap">
     <div class="sec-head rv"><h2 class="h2">자주 묻는 질문.</h2></div>
     <div class="faq">
+      <details><summary>대학생·대학원생은 어떻게 쓰나요?</summary><div class="ans"><p>논문이나 리딩 과제 PDF를 열어 중요한 문장에 하이라이트를 칠하고, 떠오른 생각은 옆 메모 칸에 적어요. 모르는 개념은 글을 고르기만 하면 백과사전과 AI가 이 문서에서 쓰인 뜻을 보여 줘요. 읽던 쪽을 바탕으로 관련 논문을 찾고, AI가 추천한 참고문헌은 실제로 있는지 확인한 것만 보여 줘요. 표시와 메모는 PDF 파일 안에 저장돼서 노트북에서 칠한 논문을 휴대폰에서 열어도 그대로예요.</p></div></details>
+      <details><summary>한글(hwp·hwpx) 파일도 열 수 있나요?</summary><div class="ans"><p>네. 한컴 한글이 없는 컴퓨터나 휴대폰에서도 .hwpx와 .hwp(한글 5.0 이후) 문서를 열고, 밑줄과 메모를 남겨요. 표·그림·각주·쪽 번호도 나와요. 암호를 건 문서, 배포용 문서, 한글 97 이전 형식은 열지 못해요.</p></div></details>
+      <details><summary>영어 논문이나 원서 PDF를 한국어로 번역할 수 있나요?</summary><div class="ans"><p>맥·윈도우의 ‘문서 번역’은 원문 글자를 걷어 내고 그 자리에 번역 글을 넣은 새 PDF를 만들어요. 번역은 연결한 AI가 하고, ‘번역 규칙·용어집’에 적어 둔 말투와 용어를 따라요. 한 문장만 궁금하면 그 문장을 골라 바로 번역해요.</p></div></details>
+      <details><summary>Microsoft Store에서도 받을 수 있나요?</summary><div class="ans"><p>네. 윈도우용은 <a class="link" href="https://apps.microsoft.com/detail/9PJK6FT8Q7TT">Microsoft Store</a>에서 ‘Folane’을 찾아 설치할 수 있어요. 스토어로 설치하면 업데이트도 스토어가 맡아요. 스토어 버전은 인증을 거치느라 이 페이지의 설치 파일보다 며칠 늦게 올라올 수 있어요.</p></div></details>
       <details><summary>번역하면 문서의 디자인도 유지되나요?</summary><div class="ans"><p>원문이 있던 자리에 번역문을 넣고, 그림·표·배경과 단 구성을 살린 새 PDF를 만들어요. 원본은 바꾸지 않아요. 글자 크기·색·굵기도 원문에 맞추되, 번역문이 길면 줄 간격이나 글자 크기를 조정해요. 복잡한 PDF나 스캔본에서는 배치가 달라질 수 있어 결과 확인이 필요해요. 원본의 밑줄과 메모는 번역본에 자동으로 옮기지 않아요.</p></div></details>
       <details><summary>어떤 언어로 번역할 수 있나요?</summary><div class="ans"><p>맥·윈도우 문서 번역에서 한국어, 영어, 일본어, 중국어 간체·번체, 스페인어, 프랑스어, 독일어, 베트남어, 러시아어를 선택할 수 있어요. 원문 언어는 자동으로 판단해요. 인식 가능한 원문 언어와 번역 품질은 연결한 AI에 따라 달라요.</p></div></details>
       <details><summary>정말 돈을 안 내도 되나요?</summary><div class="ans"><p>네. 앱은 무료예요. ChatGPT나 Claude처럼 쓴 만큼 요금이 나오는 AI 키를 넣으면, 그 요금은 키를 발급한 OpenAI·Anthropic에 내요. Apple Intelligence와 내 컴퓨터 모델은 별도 API 요금 없이 사용해요. 클라우드 AI의 요금과 무료 한도는 제공사에 따라 달라요.</p></div></details>
@@ -508,10 +681,10 @@
         <h2 class="g-cta-h">다음 PDF는<br>Folane에서.</h2>
         <a class="g-mailpill" id="outro-dl" href="#download"><span id="outro-dl-label">Folane 받기</span><span class="g-sz" id="outro-dl-size"></span><span class="g-orb g-orb-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
       </div>
-      <div class="g-cols"><div class="g-col g-reveal-up" style="--d:0.00s"><h3>받기</h3><ul><li><a data-dl="mac" href="https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-1.21.22-mac.dmg">맥<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a data-dl="win" href="https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-Setup-1.21.22.exe">윈도우<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a data-dl="android" href="https://github.com/peanutJES/folane-releases/releases/download/v1.21.22/Folane-1.21.22-android.apk">안드로이드<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="https://github.com/peanutJES/folane-releases/releases">모든 버전<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li></ul></div><div class="g-col g-reveal-up" style="--d:0.08s"><h3>알아보기</h3><ul><li><a href="#translate">번역<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="#ai">AI<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="#features">기능<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="#try">써 보기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li></ul></div><div class="g-col g-reveal-up" style="--d:0.16s"><h3>문서</h3><ul><li><a href="https://github.com/peanutJES/folane-releases/blob/main/docs/guide.md">화면으로 보는 사용법<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="https://github.com/peanutJES/folane-releases#readme">설치 안내<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="#privacy">밖으로 보내는 것<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="#faq">자주 묻는 질문<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li></ul></div></div>
+      <div class="g-cols"><div class="g-col g-reveal-up" style="--d:0.00s"><h3>받기</h3><ul><li><a data-dl="mac" href="https://github.com/peanutJES/folane-releases/releases/download/v1.32.2/Folane-1.32.2-mac.dmg">맥<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a data-dl="win" href="https://github.com/peanutJES/folane-releases/releases/download/v1.32.2/Folane-Setup-1.32.2.exe">윈도우<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a data-dl="android" href="https://github.com/peanutJES/folane-releases/releases/download/v1.32.2/Folane-1.32.2-android.apk">안드로이드<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="https://apps.microsoft.com/detail/9PJK6FT8Q7TT">Microsoft Store<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="https://github.com/peanutJES/folane-releases/releases">모든 버전<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li></ul></div><div class="g-col g-reveal-up" style="--d:0.08s"><h3>알아보기</h3><ul><li><a href="#translate">번역<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="#ai">AI<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="#features">기능<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="#try">써 보기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li></ul></div><div class="g-col g-reveal-up" style="--d:0.16s"><h3>문서</h3><ul><li><a href="https://github.com/peanutJES/folane-releases/blob/main/docs/guide.md">화면으로 보는 사용법<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="https://github.com/peanutJES/folane-releases#readme">설치 안내<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="#privacy">밖으로 보내는 것<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li><li><a href="#faq">자주 묻는 질문<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li></ul></div></div>
     </div>
     <div class="g-bottom">
-      <div class="g-bottom-l"><span class="g-wordmark g-wordmark-foot">FOLANE</span><i class="g-dot" aria-hidden="true"></i><span class="g-copy">© 2026 정은성 — 현재 버전 <span data-version>1.21.22</span></span></div>
+      <div class="g-bottom-l"><span class="g-wordmark g-wordmark-foot">FOLANE</span><i class="g-dot" aria-hidden="true"></i><span class="g-copy">© 2026 정은성 — 현재 버전 <span data-version>1.32.2</span></span></div>
       <div class="g-social">
         <a href="https://github.com/peanutJES/folane-releases" aria-label="Folane 릴리스 저장소(GitHub)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
         <a href="https://github.com/peanutJES/folane-releases/blob/main/docs/guide.md" aria-label="화면으로 보는 사용법"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></a>
@@ -528,7 +701,7 @@
 
 
 
-<script src="app.js?v=20261104-schema" defer></script>
+<script src="app.js?v=20261119-seo" defer></script>
 <script src="motion.js?v=20261104-gravity" defer></script>
 <script type="module" src="gravity.js?v=20261104-gravity"></script>
 </body>

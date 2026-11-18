@@ -1086,3 +1086,5 @@ html:not(.js) #try #study,html:not(.js) #try .reader-actions,html:not(.js) #try 
   }
   .nav.light .nav-links { background: #eef4fb; }
 }
+
+.dl .dl-store{align-self:center;margin-top:14px;font-size:14px}

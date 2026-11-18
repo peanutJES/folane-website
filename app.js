@@ -23,11 +23,11 @@ const MACSEQ = /*MACSEQ*/{"frames": 84, "w": 1440, "h": 900, "top0": 0.47556, "b
   const REPO = 'peanutJES/folane-releases', BASE = 'https://github.com/' + REPO + '/releases/download/';
   const platforms = ['mac', 'win', 'android'];
   const FB = {
-    tag: 'v1.21.22',
-    date: '2026-11-04T08:57:14Z',
-    mac: { name: 'Folane-1.21.22-mac.dmg', size: 26670159 },
-    win: { name: 'Folane-Setup-1.21.22.exe', size: 146426647 },
-    android: { name: 'Folane-1.21.22-android.apk', size: 33894960 }
+    tag: 'v1.32.2',
+    date: '2026-11-18T06:30:12Z',
+    mac: { name: 'Folane-1.32.2-mac.dmg', size: 29505101 },
+    win: { name: 'Folane-Setup-1.32.2.exe', size: 146599571 },
+    android: { name: 'Folane-1.32.2-android.apk', size: 34121244 }
   };
   platforms.forEach(k => FB[k].url = BASE + FB.tag + '/' + FB[k].name);
   const ua = navigator.userAgent; let os = 'other';
@@ -46,7 +46,7 @@ const MACSEQ = /*MACSEQ*/{"frames": 84, "w": 1440, "h": 900, "top0": 0.47556, "b
     if (schemaElement) {
       const schema = JSON.parse(schemaElement.textContent);
       schema.softwareVersion = v;
-      schema.downloadUrl = platforms.map(k => rel[k].url);
+      schema.downloadUrl = platforms.map(k => rel[k].url).concat((schema.downloadUrl || []).filter(u => /apps\.microsoft\.com/.test(u)));
       schemaElement.textContent = JSON.stringify(schema);
     }
   }

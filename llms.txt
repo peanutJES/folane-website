@@ -1,0 +1,33 @@
+# Folane
+
+> Folane(폴레인)은 정은성이 만들어 무료로 배포하는 PDF 리더예요. macOS·Windows·Android에서 돌아가고, 논문과 리딩 과제를 읽는 대학생·대학원생을 생각하고 만들었어요. 하이라이트·밑줄·메모를 PDF 파일 안에 저장해서 다른 기기에서 열어도 그대로 남아요.
+>
+> Folane is a free PDF reader for macOS, Windows and Android, built by a university student for reading research papers and course readings. Highlights, underlines and margin notes are saved inside the PDF itself, so they travel with the file.
+
+## 무엇을 할 수 있나요
+
+- PDF에 하이라이트·밑줄·취소선·손글씨를 남기고, 옆 메모 칸에 생각을 적어요. 표준 PDF 주석으로 저장돼요.
+- 모르는 말을 고르면 백과사전과 AI가 그 문서 안에서의 뜻을 보여 줘요.
+- 맥·윈도우의 문서 번역: 원문 글자 자리에 번역 글을 넣은 새 PDF를 만들어요(영어 원서·논문을 한국어로 읽을 때). 번역 규칙과 용어집을 따라요.
+- 고른 부분·이 쪽·문서 전체를 두고 AI에게 요약과 질문을 해요. AI 대화도 PDF 안에 저장돼요.
+- 읽던 쪽에서 관련 논문을 찾고, AI가 추천한 참고문헌은 실제로 있는지 확인한 것만 보여 줘요.
+- 한글 문서(.hwp 한글 5.0 이후, .hwpx)를 한컴 한글 없이 열어요.
+- 스캔본 글자 인식, 소리로 읽기, 음성 메모, 폴더 기반 내 라이브러리, 옵시디언 문헌 노트 연결(맥·윈도우).
+
+## AI 연결
+
+Folane에는 AI가 들어 있지 않아요. Gemini(무료 키 가능)·ChatGPT·Claude·Grok의 API 키를 직접 넣거나, 맥의 Apple Intelligence, Folane에서 받는 내 컴퓨터 모델(Gemma·Qwen), LM Studio·Ollama를 이어요. AI를 쓸 때만 고른 글과 그 앞뒤 본문이 고른 AI 회사로 가요. Folane은 서버가 없고 개인정보를 모으지 않아요.
+
+## 받기
+
+- [웹사이트](https://peanutjes.github.io/folane-website/): 기능 소개와 자주 묻는 질문
+- [최신 버전 받기(GitHub 릴리스)](https://github.com/peanutJES/folane-releases/releases/latest): 맥 .dmg(macOS 11 이상, 애플 실리콘·인텔), 윈도우 설치 파일(10·11, 64비트), 안드로이드 .apk(8 이상)
+- [Microsoft Store](https://apps.microsoft.com/detail/9PJK6FT8Q7TT): 윈도우용
+- [화면으로 보는 사용법](https://github.com/peanutJES/folane-releases/blob/main/docs/guide.md)
+- [개인정보 처리방침](https://peanutjes.github.io/folane-website/privacy.html)
+
+## 알아 둘 것
+
+- 가격: 앱은 무료예요. 유료 AI 키를 쓰면 그 요금은 AI 회사에 내요.
+- 아이폰·아이패드용은 아직 내려받을 수 없어요.
+- 암호를 건 한글 문서, 배포용 한글 문서, 한글 97 이전 형식은 열지 못해요.
