@@ -90,6 +90,8 @@ html,body{background:var(--apple-bg);color:var(--apple-ink)}
 .g-col a{color:#424245}
 @media (hover:hover) and (pointer:fine){.g-col a:hover{color:#0071E3}}
 .g-bottom{border-top-color:rgba(0,0,0,.08)}
+.g-policy-links{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px}
+.g-policy-links a{color:inherit;text-decoration:underline;text-underline-offset:.2em}
 .g-wordmark-foot{color:#1D1D1F}
 .g-social a{border-color:rgba(0,0,0,.1);color:#6E6E73}
 @media (hover:hover) and (pointer:fine){.g-social a:hover{color:#1D1D1F}}
