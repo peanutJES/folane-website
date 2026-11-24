@@ -23,11 +23,11 @@ const MACSEQ = /*MACSEQ*/{"frames": 84, "w": 1440, "h": 900, "top0": 0.47556, "b
   const REPO = 'peanutJES/folane-releases', BASE = 'https://github.com/' + REPO + '/releases/download/';
   const platforms = ['mac', 'win', 'android'];
   const FB = {
-    tag: 'v1.35.0',
-    date: '2026-11-24T16:21:16Z',
-    mac: { name: 'Folane-1.35.0-mac.dmg', size: 30626911 },
-    win: { name: 'Folane-Setup-1.35.0.exe', size: 146629416 },
-    android: { name: 'Folane-1.35.0-android.apk', size: 36447991 }
+    tag: 'v1.35.1',
+    date: '2026-11-24T16:53:21Z',
+    mac: { name: 'Folane-1.35.1-mac.dmg', size: 30778091 },
+    win: { name: 'Folane-Setup-1.35.1.exe', size: 146645111 },
+    android: { name: 'Folane-1.35.1-android.apk', size: 36464537 }
   };
   platforms.forEach(k => FB[k].url = BASE + FB.tag + '/' + FB[k].name);
   const ua = navigator.userAgent; let os = 'other';

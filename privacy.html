@@ -38,7 +38,7 @@
   <h1>개인정보 처리방침</h1>
   <p class="date">시행일 2026년 11월 25일 · 이전 판 2026년 11월 22일 · 적용 대상: Folane 맥·윈도우(Microsoft Store판 포함)·안드로이드·아이폰·아이패드</p>
 
-  <p class="lead">Folane에는 개발자가 운영하는 서버가 없습니다. 회원 가입 절차가 없고, 사용 기록·오류 보고·광고용 식별자도 수집하지 않습니다. 문서와 설정은 사용자의 기기에 보관합니다. Google Drive 동기화를 켜면 선택한 라이브러리의 PDF 사본이 사용자의 Google Drive에도 저장됩니다. Folane은 사용자의 문서, 표시, 메모, 녹음, AI 대화를 어떤 AI의 학습에도 쓰지 않습니다.</p>
+  <p class="lead">Folane에는 개발자가 운영하는 서버가 없습니다. 회원 가입 절차가 없고, 사용 기록·오류 보고·광고용 식별자도 수집하지 않습니다. 문서와 설정은 사용자의 기기에 보관합니다. Google Drive 동기화를 켜면 동기화 폴더에 넣은 PDF 사본이 사용자가 연결한 Google Drive 폴더에도 저장됩니다. Folane은 사용자의 문서, 표시, 메모, 녹음, AI 대화를 어떤 AI의 학습에도 쓰지 않습니다.</p>
 
   <h2>1. Folane은 사용자의 자료로 AI를 학습시키지 않습니다</h2>
   <ul>
@@ -74,13 +74,13 @@
     <tr><td>기기용 AI 모델 내려받기</td><td>Hugging Face, GitHub</td><td>모델 파일 요청</td></tr>
     <tr><td>AI 모델 목록·업데이트 확인(GitHub 배포판)</td><td>GitHub</td><td>최신 버전·모델 목록 요청. Microsoft Store판의 업데이트는 Store가 처리</td></tr>
     <tr><td>ChatGPT 구독 로그인</td><td>OpenAI</td><td>로그인은 OpenAI 화면에서 진행되며, Folane은 비밀번호를 받지 않음</td></tr>
-    <tr><td>Google Drive 라이브러리 동기화</td><td>사용자가 연결한 Google 계정의 Drive</td><td>선택한 라이브러리 폴더의 PDF와 그 안에 저장된 표시·메모 등, 폴더명·파일명·파일 크기·수정 시각·체크섬. 연결할 때 받은 계정 이메일은 앱에서 연결 계정을 표시하고 구분하는 데 사용</td></tr>
+    <tr><td>Google Drive 라이브러리 동기화</td><td>사용자가 연결한 Google 계정의 Drive</td><td>기기의 Drive 동기화 폴더에 있는 PDF와 그 안에 저장된 표시·메모 등, 폴더명·파일명·파일 크기·수정 시각·체크섬. 연결할 때 받은 계정 이메일은 앱에서 연결 계정을 표시하고 구분하는 데 사용</td></tr>
   </table></div>
 
   <h3 id="google-drive">Google Drive 동기화</h3>
   <ul>
     <li><b>앱이 받는 정보</b>에는 연결한 Google 계정의 이메일 주소와 계정 식별자, Drive 파일·폴더의 이름과 식별자, 파일 크기, 수정 시각과 체크섬이 포함됩니다. Google의 파일 단위 권한(<code>drive.file</code>)으로 동기화에 사용할 파일에 접근합니다. Google 비밀번호는 Google 로그인 화면에 입력합니다.</li>
-    <li><b>사용 목적</b>은 연결 계정을 표시하고 구분하며, 사용자가 확인한 라이브러리 폴더와 Drive의 ‘Folane’ 폴더 사이에서 PDF를 맞추는 것입니다. 전송하는 PDF에는 그 파일에 저장된 밑줄, 메모, 그 밖의 표시가 포함될 수 있습니다. Folane은 이 동기화에서 받은 Google 데이터를 광고, 분석, AI 학습에 사용하지 않습니다.</li>
+    <li><b>사용 목적</b>은 연결 계정을 표시하고 구분하며, 기기에서 지정한 Drive 동기화 폴더와 Google Drive에서 고른 폴더 사이에 PDF를 맞추는 것입니다. Google Drive의 기본 폴더는 ‘Folane’입니다. 사용자는 Google의 폴더 선택 창에서 내 드라이브의 다른 폴더에 접근을 허용할 수 있습니다. ‘내 기기의 라이브러리’는 별도로 관리합니다. 전송하는 PDF에는 그 파일에 저장된 밑줄, 메모, 그 밖의 표시가 포함될 수 있습니다. Folane은 이 동기화에서 받은 Google 데이터를 광고, 분석, AI 학습에 사용하지 않습니다.</li>
     <li><b>저장과 전달</b>은 사용자 기기와 Google Drive 사이에서 이루어집니다. Folane 개발자와 AI 제공사는 Drive 동기화 데이터를 받지 않습니다. 맥·윈도우에서는 연결용 토큰을 기기에 암호화해 보관합니다. 안드로이드에서는 Google Play 서비스가 연결 토큰을 발급하고 Folane이 실행 중에 사용합니다. 연결 계정과 동기화에 필요한 비교 기록은 기기 앱 데이터에 남을 수 있습니다.</li>
     <li><b>연결 해제와 삭제</b>는 사용자가 제어합니다. Folane의 ‘연결 끊기’는 해당 기기의 동기화를 멈춥니다. Google 계정의 <a href="https://myaccount.google.com/connections">서드 파티 연결</a>에서 Folane의 Drive 접근을 철회할 수 있습니다. 기기의 계정·동기화 기록을 지우려면 아래 7번의 앱 데이터 삭제 절차를 따르세요. PDF 사본은 사용자가 해당 기기나 Drive에서 삭제할 때까지 남습니다. Drive 사본은 Google Drive에서 지울 수 있습니다. Drive 데이터 보관과 처리에는 <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>이 적용됩니다.</li>
   </ul>
@@ -125,7 +125,7 @@
   <section class="en">
     <h2>Privacy Policy (English summary)</h2>
     <p>Folane has no servers and collects no personal data, analytics, crash reports, or advertising identifiers. Documents, annotations, recordings, and settings stay on your device by default. <b>Folane never uses your documents, annotations, recordings, or AI conversations to train any AI model</b>; the developer never receives them. When you use a feature, your device sends data directly (over HTTPS) to that service only: your question and selected text to the AI provider you connected (Google, OpenAI, Anthropic, or xAI; on-device AI stays local), citation details to library catalogs (National Library of Korea, OpenAlex, Crossref, Open Library, Google Books), a book title and author or translator to Kyobo and Aladin search when a book is not in those catalogs, ISBNs for cover images (Open Library, Kyobo), a looked-up word to Wikipedia or Namuwiki, and update checks to GitHub (non-Store builds). Whether an AI provider trains on what you send is governed by that provider’s terms, which Folane cannot guarantee — see the provider table above and check each provider’s current terms. The Microsoft Store build asks for consent before first sending document text to an AI provider; you can withdraw it from the Help menu. Questions and AI-content reports: <a href="https://github.com/peanutJES/folane-releases/issues">GitHub Issues</a>. Effective November 22, 2026.</p>
-    <p>If you connect Google Drive and confirm a Folane library folder, Folane uses the email address and identifier of your Google account to identify the connection. It uses the <code>drive.file</code> permission to exchange PDFs and the names, IDs, sizes, modification times, and checksums used to match files and folders. A synced PDF may include annotations saved inside it. Google Drive sync data goes directly between your device and Google Drive. It is used for sync, and Folane does not use it for advertising, analytics, or AI training. The developer and AI providers do not receive Drive sync data.</p>
+    <p>If you connect Google Drive and confirm the sync folder on this device and the destination in Google Drive, Folane uses the email address and identifier of your Google account to identify the connection. It uses the <code>drive.file</code> permission to exchange PDFs and the names, IDs, sizes, modification times, and checksums used to match files and folders. The default destination is the Folane folder. You can grant access to a different folder in My Drive using the Google folder picker. Your device library is managed separately. A synced PDF may include annotations saved inside it. Google Drive sync data goes directly between your device and Google Drive. It is used for sync, and Folane does not use it for advertising, analytics, or AI training. The developer and AI providers do not receive Drive sync data.</p>
     <p>Mac and Windows encrypt connection tokens on the device. Android uses Google Play services to obtain a token while the app runs. Account and sync records may remain in local app data. Use Disconnect in Folane to stop sync on that device, or remove Folane's access in your Google Account. Clear local app data to remove local account and sync records. PDF copies remain until you delete them on the device or in Google Drive. Google handles Drive storage under its privacy policy.</p>
   </section>
 </main>
