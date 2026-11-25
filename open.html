@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>Folane에서 열기</title>
+<link rel="icon" href="assets/icon.png">
+<link rel="stylesheet" href="assets/fonts/pretendard.css">
+<style>
+  :root { --bg: #F5F5F7; --card: #FFFFFF; --ink: #1D1D1F; --muted: #6E6E73; --line: #D2D2D7; --blue: #0071E3; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #000000; --card: #1C1C1E; --ink: #F5F5F7; --muted: #A1A1A6; --line: #38383A; --blue: #2997FF; } }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 "Pretendard", -apple-system, "Segoe UI", "Malgun Gothic", sans-serif; -webkit-font-smoothing: antialiased; display: grid; place-items: center; padding: 24px 16px; }
+  main { width: 100%; max-width: 460px; background: var(--card); border-radius: 22px; padding: 36px 28px 30px; text-align: center; }
+  img { width: 72px; height: 72px; border-radius: 16px; }
+  h1 { font-size: 26px; line-height: 1.25; letter-spacing: -0.02em; margin: 18px 0 8px; }
+  p { color: var(--muted); margin: 0 0 22px; }
+  .open { display: inline-block; min-height: 44px; padding: 11px 26px; border-radius: 999px; background: var(--blue); color: #fff; font-weight: 600; text-decoration: none; }
+  .open:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+  .small { margin: 22px 0 0; padding-top: 18px; border-top: 1px solid var(--line); font-size: 14px; }
+  .small a { color: var(--blue); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <img src="assets/icon.png" alt="">
+  <section id="go" hidden>
+    <h1>Folane에서 여는 중이에요</h1>
+    <p>브라우저가 Folane을 열지 물으면 ‘열기’를 눌러 주세요. Folane이 PDF를 동기화 폴더로 받아 바로 열어요.</p>
+    <a class="open" id="link" href="#">Folane 열기</a>
+  </section>
+  <section id="how">
+    <h1>Google Drive에서 Folane으로 열기</h1>
+    <p>Drive에서 PDF를 오른쪽 클릭하고 ‘연결 앱 → Folane’을 고르면 이 페이지를 거쳐 Folane에서 열려요. 먼저 Folane에서 Google Drive를 연결해 주세요.</p>
+  </section>
+  <p class="small">Folane이 아직 없다면 <a href="./">Folane 내려받기</a></p>
+</main>
+<script>
+  (function () {
+    var state = null;
+    try { state = JSON.parse(new URLSearchParams(location.search).get("state") || "null"); } catch (e) { state = null; }
+    // 파일 ID가 주소 기록에 남지 않게 지운다
+    try { history.replaceState(null, "", location.pathname); } catch (e) {}
+    var ids = state && state.action === "open" && Array.isArray(state.ids)
+      ? state.ids.filter(function (id) { return typeof id === "string" && /^[A-Za-z0-9_-]{1,200}$/.test(id); }).slice(0, 50) : [];
+    if (!ids.length) return;
+    var user = typeof state.userId === "string" && /^[A-Za-z0-9_-]{1,100}$/.test(state.userId) ? state.userId : "";
+    var link = "folane://drive?ids=" + ids.join(",") + (user ? "&user=" + encodeURIComponent(user) : "");
+    document.getElementById("link").href = link;
+    document.getElementById("go").hidden = false;
+    document.getElementById("how").hidden = true;
+    location.href = link;
+  })();
+</script>
+</body>
+</html>
